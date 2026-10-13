@@ -7,12 +7,12 @@
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta id="themeColorMeta" name="theme-color" content="#ffffff">
     <!-- Primary Meta Tags -->
-    <title>Spac2 Image to Base64 Converter online</title>
-    <meta name="title" content="Spac2 Image to Base64 Converter — Free Online Image to Data URI Tool">
+    <title>Spac2 Image & Base64 Converter online — Image to Base64 & Base64 to Image</title>
+    <meta name="title" content="Spac2 Image & Base64 Converter — Image to Base64 & Base64 to Image">
     <meta name="description"
-        content="Convert PNG, JPG, WebP, SVG, GIF, ICO, AVIF images to Base64 Data URI strings instantly. 100% private client-side conversion with HTML, CSS, and Markdown snippets.">
+        content="Convert PNG, JPG, WebP, SVG, GIF, ICO, AVIF images to Base64 Data URI strings, or decode Base64 back into image files instantly. 100% private client-side tool.">
     <meta name="keywords"
-        content="Image to base64, convert image to base64, png to base64, jpg to base64, svg to base64, data uri generator, base64 image converter, spac2">
+        content="Image to base64, base64 to image, convert image to base64, decode base64 to image, png to base64, jpg to base64, svg to base64, data uri generator, spac2">
     <meta name="author" content="Spac2">
     <meta name="robots" content="index, follow">
 
@@ -28,18 +28,18 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Spac2">
     <meta property="og:url" content="https://spac2.com/tools/convert-img-to-base64/">
-    <meta property="og:title" content="Spac2 Image to Base64 Converter — Free Online Tool">
+    <meta property="og:title" content="Spac2 Image & Base64 Converter — Image to Base64 & Base64 to Image">
     <meta property="og:description"
-        content="Quickly convert images to Base64 Data URI strings in your browser. Copy HTML img tags, CSS background rules, or raw Base64 strings.">
+        content="Convert images to Base64 Data URI strings or decode Base64 back to image files in your browser. 100% private and client-side.">
     <meta property="og:image" content="https://spac2.com/apple-touch-icon.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:site" content="@spac2com">
     <meta property="twitter:url" content="https://spac2.com/tools/convert-img-to-base64/">
-    <meta property="twitter:title" content="Spac2 Image to Base64 Converter — Free Online Tool">
+    <meta property="twitter:title" content="Spac2 Image & Base64 Converter — Image to Base64 & Base64 to Image">
     <meta property="twitter:description"
-        content="Quickly convert images to Base64 Data URI strings in your browser. Copy HTML img tags, CSS background rules, or raw Base64 strings.">
+        content="Convert images to Base64 Data URI strings or decode Base64 back to image files in your browser. 100% private and client-side.">
     <meta property="twitter:image" content="https://spac2.com/apple-touch-icon.png">
 
     <!-- Schema.org Markup -->
@@ -47,9 +47,9 @@
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Spac2 Image to Base64 Converter",
+      "name": "Spac2 Image & Base64 Converter",
       "url": "https://spac2.com/tools/convert-img-to-base64/",
-      "description": "Convert images into Base64 format online. Generate Data URIs, HTML img tags, and CSS background-image properties with instant copy.",
+      "description": "Convert images into Base64 format and decode Base64 strings back to image files online. 100% client-side privacy.",
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "All",
       "offers": {
@@ -65,13 +65,18 @@
     }
     </script>
 
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
     <!-- JSZip CDN for batch zip download -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <script>
-        // Init Theme trước khi render HTML để tránh giật màu/chớp trắng
+        // Init theme prior to rendering
         const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         document.documentElement.setAttribute('data-theme', savedTheme);
     </script>
@@ -88,68 +93,121 @@
         data-website-id="c4f68426-cd7b-40ed-b788-74c5305b5122"></script>
 
     <style>
-        /* ================= THEME VARIABLES (SPAC2 NATIVE APP STANDARD) ================= */
+        /* ================= THEME DESIGN TOKENS ================= */
         :root {
-            --bg-color: #f2f2f7;
+            --bg-color: #f6f8fb;
             --surface-color: #ffffff;
-            --surface-elevated: #fbfbfd;
-            --text-primary: #1c1c1e;
-            --text-secondary: #8e8e93;
-            --text-tertiary: #c7c7cc;
-            --border-color: #e5e5ea;
-            --btn-bg: #007aff;
+            --surface-elevated: #f8fafc;
+            --surface-card: #ffffff;
+            --surface-contrast: #0f172a;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --text-tertiary: #94a3b8;
+            --border-color: #e2e8f0;
+            --border-subtle: #edf2f7;
+            --border-focus: #3b82f6;
+
+            --btn-bg: #2563eb;
             --btn-text: #ffffff;
-            --btn-hover: #005bb5;
-            --btn-secondary-bg: rgba(0, 0, 0, 0.05);
-            --btn-secondary-text: #1c1c1e;
-            --btn-secondary-hover: rgba(0, 0, 0, 0.09);
-            --drop-zone-bg: #f9f9fb;
-            --drop-zone-border: #c7c7cc;
-            --drop-zone-hover: #eef2ff;
-            --drop-zone-hover-border: #007aff;
-            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
-            --code-bg: #f5f5f7;
-            --code-border: #e5e5ea;
-            --badge-bg: #e5e5ea;
-            --badge-text: #3a3a3c;
-            --success-color: #34c759;
-            --accent-glow: rgba(0, 122, 255, 0.15);
+            --btn-hover: #1d4ed8;
+            --btn-active: #1e40af;
+            --btn-secondary-bg: #f1f5f9;
+            --btn-secondary-text: #334155;
+            --btn-secondary-hover: #e2e8f0;
+            --btn-secondary-border: #e2e8f0;
+
+            --drop-zone-bg: #ffffff;
+            --drop-zone-border: #cbd5e1;
+            --drop-zone-hover-bg: #f0f7ff;
+            --drop-zone-hover-border: #3b82f6;
+            --accent-glow: rgba(37, 99, 235, 0.12);
+
+            --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.03);
+            --card-shadow-hover: 0 12px 30px -4px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(15, 23, 42, 0.04);
+
+            --code-bg: #f8fafc;
+            --code-border: #e2e8f0;
+            --code-text: #0f172a;
+
+            --badge-bg: #f1f5f9;
+            --badge-text: #475569;
+            --badge-border: #e2e8f0;
+
+            --success-color: #10b981;
+            --success-bg: rgba(16, 185, 129, 0.1);
+            --success-border: rgba(16, 185, 129, 0.25);
+
+            --warning-color: #f59e0b;
+            --warning-bg: rgba(245, 158, 11, 0.1);
+            --warning-border: rgba(245, 158, 11, 0.25);
+
+            --danger-color: #ef4444;
+            --danger-bg: rgba(239, 68, 68, 0.08);
+            --danger-border: rgba(239, 68, 68, 0.2);
+            --danger-hover-bg: rgba(239, 68, 68, 0.15);
+
             --safe-top: env(safe-area-inset-top, 0px);
             --safe-bottom: env(safe-area-inset-bottom, 0px);
         }
 
         [data-theme="dark"] {
-            --bg-color: #000000;
-            --surface-color: #1c1c1e;
-            --surface-elevated: #242426;
-            --text-primary: #ffffff;
-            --text-secondary: #aeaeb2;
-            --text-tertiary: #48484a;
-            --border-color: #38383a;
-            --btn-bg: #0a84ff;
+            --bg-color: #09090b;
+            --surface-color: #121215;
+            --surface-elevated: #18181c;
+            --surface-card: #151518;
+            --surface-contrast: #ffffff;
+            --text-primary: #f4f4f5;
+            --text-secondary: #a1a1aa;
+            --text-tertiary: #71717a;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-subtle: rgba(255, 255, 255, 0.04);
+            --border-focus: #3b82f6;
+
+            --btn-bg: #3b82f6;
             --btn-text: #ffffff;
-            --btn-hover: #0060d1;
-            --btn-secondary-bg: rgba(255, 255, 255, 0.08);
-            --btn-secondary-text: #ffffff;
-            --btn-secondary-hover: rgba(255, 255, 255, 0.14);
-            --drop-zone-bg: #151517;
-            --drop-zone-border: #48484a;
-            --drop-zone-hover: #17223b;
-            --drop-zone-hover-border: #0a84ff;
+            --btn-hover: #2563eb;
+            --btn-active: #1d4ed8;
+            --btn-secondary-bg: rgba(255, 255, 255, 0.06);
+            --btn-secondary-text: #e4e4e7;
+            --btn-secondary-hover: rgba(255, 255, 255, 0.12);
+            --btn-secondary-border: rgba(255, 255, 255, 0.08);
+
+            --drop-zone-bg: #121215;
+            --drop-zone-border: rgba(255, 255, 255, 0.14);
+            --drop-zone-hover-bg: #141c2c;
+            --drop-zone-hover-border: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.25);
+
             --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
-            --code-bg: #121214;
-            --code-border: #2c2c2e;
-            --badge-bg: #2c2c2e;
-            --badge-text: #d1d1d6;
-            --success-color: #30d158;
-            --accent-glow: rgba(10, 132, 255, 0.25);
+            --card-shadow-hover: 0 14px 40px rgba(0, 0, 0, 0.6);
+
+            --code-bg: #0d0d10;
+            --code-border: rgba(255, 255, 255, 0.08);
+            --code-text: #f4f4f5;
+
+            --badge-bg: rgba(255, 255, 255, 0.06);
+            --badge-text: #d4d4d8;
+            --badge-border: rgba(255, 255, 255, 0.08);
+
+            --success-color: #34d399;
+            --success-bg: rgba(52, 211, 153, 0.12);
+            --success-border: rgba(52, 211, 153, 0.25);
+
+            --warning-color: #fbbf24;
+            --warning-bg: rgba(251, 191, 36, 0.12);
+            --warning-border: rgba(251, 191, 36, 0.25);
+
+            --danger-color: #f87171;
+            --danger-bg: rgba(248, 113, 113, 0.1);
+            --danger-border: rgba(248, 113, 113, 0.2);
+            --danger-hover-bg: rgba(248, 113, 113, 0.18);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
@@ -159,11 +217,28 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: background-color 0.25s ease, color 0.25s ease;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             -webkit-tap-highlight-color: transparent;
-            overscroll-behavior-y: none;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 1200px;
+            height: 480px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.07) 0%, rgba(59, 130, 246, 0) 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        [data-theme="dark"] body::before {
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.09) 0%, rgba(59, 130, 246, 0) 70%);
         }
 
         /* ================= FLOATING GLASSMORPHIC HEADER ================= */
@@ -174,7 +249,7 @@
             right: 0;
             z-index: 100;
             width: 100%;
-            padding: calc(0.75rem + var(--safe-top)) 1rem 0.75rem 1rem;
+            padding: calc(0.65rem + var(--safe-top)) 1rem 0.65rem 1rem;
             pointer-events: none;
             display: flex;
             justify-content: center;
@@ -184,84 +259,52 @@
         .glass-panel.header-inner {
             pointer-events: auto;
             width: 100%;
-            max-width: 1280px;
+            max-width: 1100px;
             border-radius: 20px;
             padding: 0.5rem 1rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: rgba(255, 255, 255, 0.78);
+            background: rgba(255, 255, 255, 0.82);
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
-            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s ease;
         }
 
         [data-theme="dark"] .glass-panel.header-inner {
-            background: rgba(24, 24, 27, 0.65);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            background: rgba(18, 18, 21, 0.78);
             border-color: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
         }
 
-        @media (min-width: 768px) {
-            .glass-panel.header-inner {
-                border-radius: 22px;
-                padding: 0.6rem 1.25rem;
-            }
-        }
-
-        .header-left {
+        .header-left,
+        .header-right {
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
         .btn-back {
-            width: 38px;
-            height: 38px;
+            width: 36px;
+            height: 36px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            border-radius: 12px;
-            background: rgba(0, 0, 0, 0.04);
-            border: 1.5px solid rgba(0, 0, 0, 0.18);
+            border-radius: 10px;
+            background: var(--btn-secondary-bg);
+            border: 1px solid var(--border-color);
             color: var(--text-primary);
             text-decoration: none;
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.2s ease;
             cursor: pointer;
-            flex-shrink: 0;
-            font-size: 18px;
-        }
-
-        [data-theme="dark"] .btn-back {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(255, 255, 255, 0.18);
-            color: var(--text-primary);
+            font-size: 17px;
         }
 
         .btn-back:hover {
-            background: rgba(0, 0, 0, 0.08);
+            background: var(--btn-secondary-hover);
             transform: translateX(-2px);
-            border-color: rgba(0, 0, 0, 0.35);
-        }
-
-        [data-theme="dark"] .btn-back:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(255, 255, 255, 0.35);
-        }
-
-        .btn-back:active {
-            transform: scale(0.92);
-            background: rgba(0, 0, 0, 0.12);
         }
 
         .brand-link {
@@ -270,30 +313,19 @@
             gap: 10px;
             text-decoration: none;
             color: inherit;
-            transition: opacity 0.15s ease;
-        }
-
-        .brand-link:hover {
-            opacity: 0.92;
         }
 
         .brand-logo-card {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
             background: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.06);
             flex-shrink: 0;
-            padding: 3.5px;
-            box-sizing: border-box;
-            transition: transform 0.2s ease;
-        }
-
-        .brand-link:hover .brand-logo-card {
-            transform: scale(1.04);
+            padding: 3px;
         }
 
         .brand-logo-img {
@@ -301,7 +333,6 @@
             height: 100%;
             object-fit: contain;
             border-radius: 6px;
-            display: block;
         }
 
         .brand-text {
@@ -309,71 +340,44 @@
             align-items: center;
             gap: 7px;
             line-height: 1;
-            white-space: nowrap;
         }
 
         .brand-name {
             font-weight: 800;
-            font-size: 19px;
+            font-size: 18px;
             color: var(--text-primary);
-            letter-spacing: -0.025em;
-            line-height: 1;
+            letter-spacing: -0.02em;
         }
 
         .brand-divider {
-            font-size: 14px;
-            font-weight: 300;
-            color: var(--text-secondary);
-            opacity: 0.7;
+            font-size: 13px;
+            color: var(--text-tertiary);
         }
 
         .brand-app {
-            font-size: 14px;
+            font-size: 13.5px;
             font-weight: 600;
             color: var(--text-secondary);
-            letter-spacing: -0.01em;
-        }
-
-        [data-theme="dark"] .brand-app {
-            color: #a1a1aa;
         }
 
         .theme-toggle {
-            width: 38px;
-            height: 38px;
-            border-radius: 12px;
-            background: rgba(0, 0, 0, 0.04);
-            border: 1.5px solid rgba(0, 0, 0, 0.12);
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: var(--btn-secondary-bg);
+            border: 1px solid var(--border-color);
             color: var(--text-primary);
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        [data-theme="dark"] .theme-toggle {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(255, 255, 255, 0.15);
-            color: #fafafa;
+            transition: all 0.2s ease;
+            font-size: 18px;
         }
 
         .theme-toggle:hover {
-            background: rgba(0, 0, 0, 0.08);
-            transform: scale(1.04);
-        }
-
-        [data-theme="dark"] .theme-toggle:hover {
-            background: rgba(255, 255, 255, 0.12);
-        }
-
-        .theme-toggle:active {
-            transform: scale(0.92);
-        }
-
-        .theme-toggle i {
-            font-size: 19px;
-            line-height: 1;
+            background: var(--btn-secondary-hover);
+            transform: scale(1.05);
         }
 
         :root .icon-sun,
@@ -384,7 +388,6 @@
         :root .icon-moon,
         [data-theme="light"] .icon-moon {
             display: inline-flex !important;
-            color: #1c1c1e;
         }
 
         [data-theme="dark"] .icon-moon {
@@ -393,80 +396,155 @@
 
         [data-theme="dark"] .icon-sun {
             display: inline-flex !important;
-            color: #f4f4f5;
         }
 
         /* ================= MAIN CONTAINER ================= */
         main {
             width: 100%;
-            max-width: 860px;
+            max-width: 960px;
             margin: 0 auto 3rem auto;
-            padding: calc(84px + var(--safe-top)) 1.25rem 0 1.25rem;
+            padding: calc(78px + var(--safe-top)) 1.25rem 0 1.25rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1.35rem;
+            position: relative;
+            z-index: 1;
         }
 
-        .app-card {
-            background-color: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 2.25rem;
-            box-shadow: var(--card-shadow);
-            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .text-center {
+        /* Hero Header */
+        .hero-section {
             text-align: center;
+            margin-bottom: 0.25rem;
+            padding-top: 0.5rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            background: var(--btn-secondary-bg);
+            border: 1px solid var(--border-color);
+            font-size: 0.76rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+        }
+
+        .hero-badge i {
+            color: var(--success-color);
+            font-size: 0.85rem;
         }
 
         h1 {
-            font-size: 1.85rem;
+            font-size: 2.15rem;
             font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.45rem;
+            letter-spacing: -0.03em;
             color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: 0.45rem;
         }
 
         p.subtitle {
             color: var(--text-secondary);
-            margin-bottom: 1.75rem;
-            font-size: 0.95rem;
-            line-height: 1.5;
+            font-size: 0.96rem;
+            line-height: 1.55;
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
         }
 
-        /* Feature Pills */
-        .feature-pills {
+        /* ================= TOP-LEVEL 2-TAB SWITCHER ================= */
+        .main-tabs-wrapper {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 1.5rem;
+            margin: 0.5rem 0 0.25rem 0;
         }
 
-        .pill {
+        .main-tabs-nav {
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.78rem;
-            font-weight: 600;
             background: var(--btn-secondary-bg);
-            color: var(--text-secondary);
+            padding: 4px;
+            border-radius: 14px;
             border: 1px solid var(--border-color);
+            gap: 4px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
         }
 
-        .pill i {
-            color: var(--btn-bg);
+        .main-tab-btn {
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
             font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.55rem 1.35rem;
+            border-radius: 10px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            white-space: nowrap;
         }
 
-        /* ================= DROP ZONE ================= */
+        .main-tab-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .main-tab-btn.active {
+            background: var(--surface-color);
+            color: var(--text-primary);
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .main-tab-btn i {
+            font-size: 18px;
+            color: var(--text-secondary);
+            transition: color 0.2s ease;
+        }
+
+        .main-tab-btn.active i {
+            color: var(--btn-bg);
+        }
+
+        /* Tab Panels */
+        .tab-panel {
+            display: none;
+            flex-direction: column;
+            gap: 1.25rem;
+            animation: tabFadeIn 0.25s ease;
+        }
+
+        .tab-panel.active {
+            display: flex;
+        }
+
+        @keyframes tabFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(4px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* App Main Card */
+        .app-card {
+            background-color: var(--surface-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 1.75rem;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+        }
+
+        /* ================= TAB 1: DROP ZONE ================= */
         .drop-zone {
             border: 2px dashed var(--drop-zone-border);
             border-radius: 20px;
@@ -481,118 +559,144 @@
             justify-content: center;
             position: relative;
             user-select: none;
+            overflow: hidden;
         }
 
         .drop-zone:hover {
             border-color: var(--drop-zone-hover-border);
-            background-color: var(--drop-zone-hover);
-            transform: translateY(-1px);
+            background-color: var(--drop-zone-hover-bg);
+            transform: translateY(-2px);
         }
 
         .drop-zone.dragover {
             border-color: var(--btn-bg);
-            background-color: var(--drop-zone-hover);
-            transform: scale(1.01);
-            box-shadow: 0 0 0 6px var(--accent-glow);
+            background-color: var(--drop-zone-hover-bg);
+            transform: scale(1.008);
+            box-shadow: 0 0 0 5px var(--accent-glow);
         }
 
         .drop-zone input[type="file"] {
             display: none;
         }
 
-        .upload-icon-wrap {
-            width: 64px;
-            height: 64px;
-            border-radius: 18px;
-            background: rgba(0, 122, 255, 0.08);
+        .upload-icon-circle {
+            width: 68px;
+            height: 68px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(59, 130, 246, 0.04));
+            border: 1px solid rgba(59, 130, 246, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1rem;
-            transition: transform 0.2s ease, background-color 0.2s ease;
-        }
-
-        [data-theme="dark"] .upload-icon-wrap {
-            background: rgba(10, 132, 255, 0.15);
-        }
-
-        .drop-zone:hover .upload-icon-wrap {
-            transform: scale(1.08) rotate(-3deg);
-            background: rgba(0, 122, 255, 0.14);
-        }
-
-        .upload-icon {
-            width: 32px;
-            height: 32px;
+            margin-bottom: 1.15rem;
+            transition: transform 0.25s ease, background-color 0.25s ease;
             color: var(--btn-bg);
+            font-size: 32px;
         }
 
-        .drop-zone h3 {
-            font-size: 1.15rem;
+        .drop-zone:hover .upload-icon-circle {
+            transform: translateY(-3px) scale(1.06);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.08));
+        }
+
+        .drop-zone-title {
+            font-size: 1.18rem;
             font-weight: 700;
             margin-bottom: 0.35rem;
             color: var(--text-primary);
+            letter-spacing: -0.01em;
         }
 
-        .drop-zone p {
+        .drop-zone-subtitle {
             color: var(--text-secondary);
             font-size: 0.88rem;
+            margin-bottom: 1.25rem;
         }
 
-        .drop-zone .paste-hint {
-            margin-top: 0.85rem;
+        .format-pills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 1.15rem;
+        }
+
+        .format-pill {
+            padding: 3px 8px;
+            border-radius: 6px;
+            background: var(--badge-bg);
+            border: 1px solid var(--badge-border);
+            color: var(--badge-text);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .paste-badge {
             display: inline-flex;
             align-items: center;
             gap: 6px;
             font-size: 0.78rem;
             font-weight: 600;
             color: var(--text-secondary);
-            background: var(--surface-color);
+            background: var(--btn-secondary-bg);
+            border: 1px solid var(--border-color);
             padding: 4px 10px;
             border-radius: 8px;
-            border: 1px solid var(--border-color);
         }
 
-        .drop-zone .paste-hint kbd {
-            background: var(--code-bg);
+        .paste-badge kbd {
+            background: var(--surface-color);
             border: 1px solid var(--border-color);
             border-radius: 4px;
             padding: 1px 5px;
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             font-family: inherit;
+            color: var(--text-primary);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
         }
 
-        /* ================= TOOLBAR & OPTIONS ================= */
-        .options-bar {
+        /* ================= SETTINGS TOOLBAR ================= */
+        .conversion-bar {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
             gap: 12px;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border-color);
+            margin-top: 1.25rem;
+            padding: 0.9rem 1.15rem;
+            background: var(--surface-elevated);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
         }
 
-        .option-group {
+        .bar-left {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .bar-control {
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .option-label {
-            font-size: 0.88rem;
+        .bar-label {
+            font-size: 0.82rem;
             font-weight: 600;
             color: var(--text-secondary);
+            white-space: nowrap;
         }
 
         .custom-select {
-            background-color: var(--code-bg);
+            background-color: var(--surface-color);
             color: var(--text-primary);
             border: 1px solid var(--border-color);
-            padding: 0.55rem 2rem 0.55rem 0.85rem;
-            border-radius: 10px;
-            font-size: 0.88rem;
+            padding: 0.45rem 2rem 0.45rem 0.8rem;
+            border-radius: 9px;
+            font-size: 0.84rem;
             font-weight: 600;
             outline: none;
             cursor: pointer;
@@ -601,41 +705,50 @@
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%238e8e93'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 0.65rem center;
-            background-size: 0.95rem;
-            transition: border-color 0.2s ease, background-color 0.3s ease;
+            background-size: 0.9rem;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
         .custom-select:focus {
             border-color: var(--btn-bg);
+            box-shadow: 0 0 0 3px var(--accent-glow);
         }
 
-        /* General Buttons */
+        .bar-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Buttons Standard */
         .btn {
             background-color: var(--btn-bg);
             color: var(--btn-text);
             border: none;
-            padding: 0.65rem 1.25rem;
-            border-radius: 12px;
-            font-size: 0.92rem;
+            padding: 0.55rem 1.05rem;
+            border-radius: 10px;
+            font-size: 0.85rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 7px;
+            gap: 6px;
             text-decoration: none;
-            box-shadow: 0 2px 6px rgba(0, 122, 255, 0.16);
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.15);
+            white-space: nowrap;
         }
 
         .btn:hover:not(:disabled) {
             background-color: var(--btn-hover);
             transform: translateY(-1px);
-            box-shadow: 0 4px 10px rgba(0, 122, 255, 0.25);
+            box-shadow: 0 4px 8px rgba(37, 99, 235, 0.25);
         }
 
         .btn:active:not(:disabled) {
-            transform: scale(0.97);
+            background-color: var(--btn-active);
+            transform: translateY(0) scale(0.98);
         }
 
         .btn:disabled {
@@ -648,44 +761,54 @@
         .btn-secondary {
             background-color: var(--btn-secondary-bg);
             color: var(--btn-secondary-text);
+            border: 1px solid var(--btn-secondary-border);
             box-shadow: none;
-            border: 1px solid var(--border-color);
         }
 
         .btn-secondary:hover:not(:disabled) {
             background-color: var(--btn-secondary-hover);
+            border-color: var(--border-color);
+            color: var(--text-primary);
             box-shadow: none;
-            border-color: rgba(0, 0, 0, 0.2);
-        }
-
-        [data-theme="dark"] .btn-secondary:hover:not(:disabled) {
-            border-color: rgba(255, 255, 255, 0.25);
-        }
-
-        .btn-sm {
-            padding: 0.45rem 0.85rem;
-            font-size: 0.82rem;
-            border-radius: 9px;
         }
 
         .btn-danger {
-            background-color: rgba(255, 59, 48, 0.1);
-            color: #ff3b30;
-            border: 1px solid rgba(255, 59, 48, 0.2);
+            background-color: var(--danger-bg);
+            color: var(--danger-color);
+            border: 1px solid var(--danger-border);
             box-shadow: none;
         }
 
         .btn-danger:hover:not(:disabled) {
-            background-color: rgba(255, 59, 48, 0.18);
-            border-color: rgba(255, 59, 48, 0.35);
+            background-color: var(--danger-hover-bg);
+            border-color: var(--danger-color);
+            color: var(--danger-color);
+            box-shadow: none;
         }
 
-        /* ================= CONVERTED RESULTS ================= */
+        .btn-sm {
+            padding: 0.4rem 0.75rem;
+            font-size: 0.8rem;
+            border-radius: 8px;
+        }
+
+        .btn-icon-only {
+            width: 34px;
+            height: 34px;
+            padding: 0;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        /* ================= RESULTS CONTAINER ================= */
         .results-container {
             display: none;
             margin-top: 1.5rem;
             flex-direction: column;
-            gap: 1.25rem;
+            gap: 1.15rem;
         }
 
         .results-header {
@@ -693,17 +816,34 @@
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 10px;
-            padding-bottom: 0.75rem;
+            gap: 12px;
+            padding-bottom: 0.85rem;
             border-bottom: 1px solid var(--border-color);
         }
 
-        .results-title {
-            font-size: 1.15rem;
-            font-weight: 700;
+        .results-title-group {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+        }
+
+        .results-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: var(--success-bg);
+            color: var(--success-color);
+            border: 1px solid var(--success-border);
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        .results-size-badge {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
         }
 
         .results-actions {
@@ -713,67 +853,77 @@
             flex-wrap: wrap;
         }
 
-        /* Format Tabs / Pill Switcher */
-        .format-tabs {
-            display: flex;
-            background: var(--code-bg);
-            padding: 3px;
-            border-radius: 12px;
+        .view-switch {
+            display: inline-flex;
+            background: var(--btn-secondary-bg);
             border: 1px solid var(--border-color);
-            gap: 3px;
-            overflow-x: auto;
-            max-width: 100%;
+            border-radius: 8px;
+            padding: 2px;
+            gap: 2px;
         }
 
-        .format-tab {
-            padding: 6px 12px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            border-radius: 9px;
+        .view-btn {
             border: none;
             background: transparent;
             color: var(--text-secondary);
+            padding: 4px 8px;
+            border-radius: 6px;
             cursor: pointer;
-            white-space: nowrap;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             transition: all 0.15s ease;
         }
 
-        .format-tab:hover {
-            color: var(--text-primary);
-        }
-
-        .format-tab.active {
+        .view-btn.active {
             background: var(--surface-color);
             color: var(--text-primary);
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
         }
 
-        /* Single/Multi Item Card */
-        .item-card {
-            background: var(--surface-elevated);
-            border: 1px solid var(--border-color);
-            border-radius: 18px;
-            padding: 1.25rem;
+        /* ================= ITEM CARD ================= */
+        .items-list {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            gap: 0.9rem;
+        }
+
+        .item-card {
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 1.15rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            box-shadow: var(--card-shadow);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
         }
 
         .item-card:hover {
-            border-color: rgba(0, 122, 255, 0.35);
+            border-color: rgba(59, 130, 246, 0.35);
+            box-shadow: var(--card-shadow-hover);
         }
 
-        .item-top {
+        .item-main-row {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
+            justify-content: space-between;
             gap: 1rem;
         }
 
-        /* Thumbnail with transparency grid */
-        .item-thumb-wrap {
-            width: 76px;
-            height: 76px;
+        .item-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            min-width: 0;
+            flex-grow: 1;
+        }
+
+        .item-thumb-box {
+            width: 62px;
+            height: 62px;
             border-radius: 12px;
             overflow: hidden;
             border: 1px solid var(--border-color);
@@ -781,111 +931,283 @@
             position: relative;
             background-color: #ffffff;
             background-image: 
-                linear-gradient(45deg, #eee 25%, transparent 25%), 
-                linear-gradient(-45deg, #eee 25%, transparent 25%), 
-                linear-gradient(45deg, transparent 75%, #eee 75%), 
-                linear-gradient(-45deg, transparent 75%, #eee 75%);
-            background-size: 12px 12px;
-            background-position: 0 0, 0 6px, 6px -6px, -6px 0px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+                linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
+                linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #f0f0f0 75%), 
+                linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+            background-size: 10px 10px;
+            background-position: 0 0, 0 5px, 5px -5px, -5px 0px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
         }
 
-        [data-theme="dark"] .item-thumb-wrap {
-            background-color: #222;
+        [data-theme="dark"] .item-thumb-box {
+            background-color: #1a1a1e;
             background-image: 
-                linear-gradient(45deg, #2e2e2e 25%, transparent 25%), 
-                linear-gradient(-45deg, #2e2e2e 25%, transparent 25%), 
-                linear-gradient(45deg, transparent 75%, #2e2e2e 75%), 
-                linear-gradient(-45deg, transparent 75%, #2e2e2e 75%);
+                linear-gradient(45deg, #27272c 25%, transparent 25%), 
+                linear-gradient(-45deg, #27272c 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #27272c 75%), 
+                linear-gradient(-45deg, transparent 75%, #27272c 75%);
         }
 
-        .item-thumb {
+        .item-thumb-box:hover {
+            transform: scale(1.04);
+            border-color: var(--btn-bg);
+        }
+
+        .item-thumb-img {
             width: 100%;
             height: 100%;
             object-fit: contain;
             display: block;
         }
 
-        .item-info {
-            flex-grow: 1;
-            min-width: 0;
+        .item-thumb-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 18px;
+            opacity: 0;
+            transition: opacity 0.2s ease;
         }
 
-        .item-name {
-            font-size: 0.98rem;
+        .item-thumb-box:hover .item-thumb-overlay {
+            opacity: 1;
+        }
+
+        .item-details {
+            min-width: 0;
+            flex-grow: 1;
+        }
+
+        .item-filename {
+            font-size: 0.96rem;
             font-weight: 700;
+            color: var(--text-primary);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             margin-bottom: 0.35rem;
-            color: var(--text-primary);
+            letter-spacing: -0.01em;
         }
 
-        .item-meta {
+        .item-chips {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
             align-items: center;
+            gap: 6px;
         }
 
-        .meta-chip {
-            font-size: 0.74rem;
+        .chip {
+            font-size: 0.72rem;
             font-weight: 600;
             padding: 2px 7px;
             border-radius: 6px;
-            background: var(--code-bg);
-            color: var(--text-secondary);
-            border: 1px solid var(--border-color);
+            background: var(--badge-bg);
+            color: var(--badge-text);
+            border: 1px solid var(--badge-border);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
         }
 
-        .meta-chip.positive {
+        .chip-format {
+            font-weight: 800;
+            background: rgba(59, 130, 246, 0.08);
             color: var(--btn-bg);
-            background: rgba(0, 122, 255, 0.08);
-            border-color: rgba(0, 122, 255, 0.2);
+            border-color: rgba(59, 130, 246, 0.2);
         }
 
-        .item-item-actions {
+        .chip-size-up {
+            color: var(--text-secondary);
+        }
+
+        .chip-size-overhead {
+            color: #d97706;
+            background: var(--warning-bg);
+            border-color: var(--warning-border);
+            font-weight: 700;
+        }
+
+        [data-theme="dark"] .chip-size-overhead {
+            color: #fbbf24;
+        }
+
+        .item-right-actions {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             flex-shrink: 0;
         }
 
-        /* Code display area */
-        .code-box-wrapper {
-            position: relative;
+        .btn-copy-main {
+            padding: 0.5rem 1.15rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border-radius: 10px;
+            background: var(--btn-bg);
+            color: #ffffff;
+            box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-copy-main.copied {
+            background: var(--success-color);
+            box-shadow: 0 2px 6px rgba(16, 185, 129, 0.25);
+        }
+
+        .format-selector-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding-top: 0.65rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .format-tabs {
+            display: inline-flex;
+            background: var(--btn-secondary-bg);
+            padding: 3px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            gap: 3px;
+            overflow-x: auto;
+            max-width: 100%;
+        }
+
+        .format-tab-btn {
+            padding: 5px 11px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            border-radius: 7px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .format-tab-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .format-tab-btn.active {
+            background: var(--surface-color);
+            color: var(--text-primary);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            font-weight: 700;
+        }
+
+        .toggle-code-btn {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            transition: all 0.15s ease;
+        }
+
+        .toggle-code-btn:hover {
+            color: var(--btn-bg);
+            background: var(--btn-secondary-bg);
+        }
+
+        .snippet-preview-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            background: var(--code-bg);
+            border: 1px solid var(--code-border);
+            border-radius: 10px;
+            padding: 0.5rem 0.85rem;
+            font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+            font-size: 0.77rem;
+            color: var(--text-secondary);
+        }
+
+        .snippet-preview-text {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            direction: ltr;
+            min-width: 0;
+            flex-grow: 1;
+            color: var(--text-primary);
+        }
+
+        .snippet-preview-meta {
+            flex-shrink: 0;
+            font-size: 0.73rem;
+            color: var(--text-tertiary);
+            font-weight: 500;
+        }
+
+        .code-box-full {
+            display: none;
+            flex-direction: column;
             border-radius: 12px;
             overflow: hidden;
             border: 1px solid var(--code-border);
             background-color: var(--code-bg);
+            margin-top: 0.4rem;
+            animation: fadeIn 0.2s ease;
+        }
+
+        .code-box-full.open {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-4px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .code-box-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0.5rem 0.85rem;
-            background: rgba(0, 0, 0, 0.02);
+            padding: 0.45rem 0.85rem;
+            background: rgba(0, 0, 0, 0.03);
             border-bottom: 1px solid var(--code-border);
-            font-size: 0.76rem;
+            font-size: 0.75rem;
             color: var(--text-secondary);
             font-weight: 600;
         }
 
         [data-theme="dark"] .code-box-header {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(255, 255, 255, 0.03);
         }
 
-        .code-box-content {
+        .code-box-textarea {
             width: 100%;
-            min-height: 90px;
-            max-height: 180px;
+            height: 120px;
             padding: 0.75rem 0.85rem;
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-            font-size: 0.8rem;
-            line-height: 1.45;
+            font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+            font-size: 0.78rem;
+            line-height: 1.5;
             color: var(--text-primary);
             background: transparent;
             border: none;
@@ -896,10 +1218,400 @@
             box-sizing: border-box;
         }
 
-        .code-copy-overlay {
-            position: absolute;
-            right: 8px;
-            top: 40px;
+        /* Compact mode */
+        .items-list.compact-mode {
+            gap: 0.5rem;
+        }
+
+        .items-list.compact-mode .item-card {
+            padding: 0.75rem 1rem;
+            border-radius: 14px;
+            gap: 0;
+        }
+
+        .items-list.compact-mode .format-selector-row,
+        .items-list.compact-mode .snippet-preview-bar,
+        .items-list.compact-mode .code-box-full {
+            display: none !important;
+        }
+
+        .items-list.compact-mode .item-thumb-box {
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+        }
+
+        .items-list.compact-mode .item-filename {
+            font-size: 0.88rem;
+            margin-bottom: 0.15rem;
+        }
+
+        /* ================= TAB 2: BASE64 TO IMAGE STYLES ================= */
+        .decoder-card {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .decoder-input-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .decoder-label-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .decoder-quick-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .decoder-textarea-wrapper {
+            position: relative;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            background: var(--code-bg);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            overflow: hidden;
+        }
+
+        .decoder-textarea-wrapper:focus-within {
+            border-color: var(--btn-bg);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        .decoder-textarea {
+            width: 100%;
+            height: 150px;
+            min-height: 110px;
+            padding: 1rem;
+            font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+            font-size: 0.82rem;
+            line-height: 1.5;
+            color: var(--text-primary);
+            background: transparent;
+            border: none;
+            outline: none;
+            resize: vertical;
+            box-sizing: border-box;
+            word-break: break-all;
+        }
+
+        .decoder-textarea::placeholder {
+            color: var(--text-tertiary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.84rem;
+        }
+
+        .decoder-bottom-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 0.6rem 1rem;
+            background: var(--surface-elevated);
+            border-top: 1px solid var(--border-subtle);
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+        }
+
+        .decoder-controls-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .decoder-error-banner {
+            display: none;
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            background: var(--danger-bg);
+            border: 1px solid var(--danger-border);
+            color: var(--danger-color);
+            font-size: 0.84rem;
+            font-weight: 600;
+            align-items: center;
+            gap: 8px;
+            animation: fadeIn 0.2s ease;
+        }
+
+        .decoder-error-banner.show {
+            display: flex;
+        }
+
+        /* Decoded Image Output Card */
+        .decoded-result-card {
+            display: none;
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 1.5rem;
+            flex-direction: column;
+            gap: 1.25rem;
+            box-shadow: var(--card-shadow);
+            animation: tabFadeIn 0.3s ease;
+        }
+
+        .decoded-result-card.show {
+            display: flex;
+        }
+
+        .decoded-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding-bottom: 0.85rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .decoded-status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: var(--success-bg);
+            color: var(--success-color);
+            border: 1px solid var(--success-border);
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        .decoded-chips {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        /* Preview Canvas Box */
+        .decoded-preview-box {
+            width: 100%;
+            min-height: 220px;
+            max-height: 480px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            overflow: auto;
+            position: relative;
+            background-color: #ffffff;
+            background-image: 
+                linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
+                linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #f0f0f0 75%), 
+                linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+            background-size: 14px 14px;
+            background-position: 0 0, 0 7px, 7px -7px, -7px 0px;
+            cursor: pointer;
+        }
+
+        [data-theme="dark"] .decoded-preview-box {
+            background-color: #161619;
+            background-image: 
+                linear-gradient(45deg, #222226 25%, transparent 25%), 
+                linear-gradient(-45deg, #222226 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #222226 75%), 
+                linear-gradient(-45deg, transparent 75%, #222226 75%);
+        }
+
+        .decoded-img-tag {
+            max-width: 100%;
+            max-height: 440px;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+            transition: transform 0.2s ease;
+        }
+
+        .decoded-preview-box:hover .decoded-img-tag {
+            transform: scale(1.015);
+        }
+
+        .decoded-actions-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding-top: 0.5rem;
+        }
+
+        .filename-input-group {
+            display: flex;
+            align-items: center;
+            background: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            flex-grow: 1;
+            max-width: 280px;
+        }
+
+        .filename-input {
+            border: none;
+            background: transparent;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.84rem;
+            color: var(--text-primary);
+            outline: none;
+            width: 100%;
+            font-weight: 600;
+        }
+
+        .filename-ext-tag {
+            padding: 0.5rem 0.75rem;
+            background: var(--surface-elevated);
+            border-left: 1px solid var(--border-color);
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
+        .decoded-btns-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        /* ================= LIGHTBOX MODAL ================= */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-card {
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            max-width: 680px;
+            width: 100%;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+            transform: scale(0.95);
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .modal-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .modal-close {
+            background: var(--btn-secondary-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: auto;
+            background-color: #ffffff;
+            background-image: 
+                linear-gradient(45deg, #f2f2f2 25%, transparent 25%), 
+                linear-gradient(-45deg, #f2f2f2 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #f2f2f2 75%), 
+                linear-gradient(-45deg, transparent 75%, #f2f2f2 75%);
+            background-size: 16px 16px;
+            background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+            min-height: 240px;
+            max-height: 55vh;
+        }
+
+        [data-theme="dark"] .modal-body {
+            background-color: #121215;
+            background-image: 
+                linear-gradient(45deg, #1c1c22 25%, transparent 25%), 
+                linear-gradient(-45deg, #1c1c22 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #1c1c22 75%), 
+                linear-gradient(-45deg, transparent 75%, #1c1c22 75%);
+        }
+
+        .modal-preview-img {
+            max-width: 100%;
+            max-height: 50vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .modal-footer {
+            padding: 0.85rem 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border-color);
+            background: var(--surface-elevated);
+        }
+
+        .modal-meta-info {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 600;
         }
 
         /* ================= TOAST NOTIFICATION ================= */
@@ -908,27 +1620,29 @@
             bottom: 24px;
             left: 50%;
             transform: translateX(-50%) translateY(100px);
-            background: rgba(28, 28, 30, 0.94);
+            background: rgba(15, 23, 42, 0.94);
             color: #ffffff;
-            padding: 0.75rem 1.4rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
+            padding: 0.65rem 1.25rem;
+            border-radius: 30px;
+            font-size: 0.86rem;
             font-weight: 600;
             display: flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             z-index: 1000;
             opacity: 0;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
             pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.12);
         }
 
         [data-theme="dark"] .toast {
             background: rgba(240, 240, 245, 0.94);
-            color: #000000;
+            color: #0f172a;
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .toast.show {
@@ -937,55 +1651,73 @@
         }
 
         .toast i {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--success-color);
         }
 
-        /* ================= FAQ & INFO SECTION ================= */
+        /* ================= INFO / FAQ CARDS ================= */
         .info-card {
-            background-color: var(--surface-color);
+            background-color: var(--surface-card);
             border: 1px solid var(--border-color);
             border-radius: 24px;
-            padding: 2.25rem;
+            padding: 1.75rem;
             box-shadow: var(--card-shadow);
         }
 
         .info-card h2 {
-            font-size: 1.35rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 0.45rem;
             color: var(--text-primary);
             display: flex;
             align-items: center;
             gap: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .info-card p.info-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
         }
 
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.25rem;
-            margin-top: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.15rem;
         }
 
         .info-box {
-            padding: 1.25rem;
+            padding: 1.15rem;
             border-radius: 16px;
-            background: var(--code-bg);
+            background: var(--surface-elevated);
             border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .info-box-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-bottom: 0.35rem;
         }
 
         .info-box h3 {
-            font-size: 0.98rem;
+            font-size: 0.94rem;
             font-weight: 700;
-            margin-bottom: 0.4rem;
             color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 6px;
         }
 
         .info-box p {
-            font-size: 0.86rem;
+            font-size: 0.84rem;
             line-height: 1.5;
             color: var(--text-secondary);
         }
@@ -993,10 +1725,10 @@
         /* Footer */
         footer {
             margin-top: auto;
-            padding: 2rem 1rem 3rem 1rem;
+            padding: 2.25rem 1rem 3rem 1rem;
             text-align: center;
             color: var(--text-secondary);
-            font-size: 0.85rem;
+            font-size: 0.84rem;
         }
 
         footer a {
@@ -1009,21 +1741,32 @@
             text-decoration: underline;
         }
 
-        /* Responsive Mobile Adjustments */
-        @media (max-width: 640px) {
+        /* ================= RESPONSIVE ADJUSTMENTS ================= */
+        @media (max-width: 680px) {
             main {
-                padding-top: calc(76px + var(--safe-top));
-                padding-left: 0.85rem;
-                padding-right: 0.85rem;
+                padding-top: calc(70px + var(--safe-top));
+                padding-left: 0.9rem;
+                padding-right: 0.9rem;
             }
 
             .app-card {
-                padding: 1.5rem 1.15rem;
+                padding: 1.25rem 1rem;
                 border-radius: 20px;
             }
 
             h1 {
-                font-size: 1.45rem;
+                font-size: 1.7rem;
+            }
+
+            .main-tabs-nav {
+                width: 100%;
+            }
+
+            .main-tab-btn {
+                flex: 1;
+                justify-content: center;
+                padding: 0.55rem 0.75rem;
+                font-size: 0.84rem;
             }
 
             .drop-zone {
@@ -1031,19 +1774,55 @@
                 border-radius: 16px;
             }
 
-            .upload-icon-wrap {
-                width: 52px;
-                height: 52px;
-                margin-bottom: 0.75rem;
+            .upload-icon-circle {
+                width: 56px;
+                height: 56px;
+                font-size: 26px;
+                margin-bottom: 0.85rem;
             }
 
-            .options-bar {
+            .conversion-bar {
                 flex-direction: column;
                 align-items: stretch;
             }
 
-            .option-group {
+            .bar-left {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+            }
+
+            .bar-control {
                 justify-content: space-between;
+                width: 100%;
+            }
+
+            .item-main-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .item-left {
+                width: 100%;
+            }
+
+            .item-right-actions {
+                width: 100%;
+                justify-content: space-between;
+                padding-top: 0.5rem;
+                border-top: 1px solid var(--border-subtle);
+            }
+
+            .btn-copy-main {
+                flex-grow: 1;
+            }
+
+            .format-selector-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .format-tabs {
                 width: 100%;
             }
 
@@ -1053,40 +1832,26 @@
             }
 
             .results-actions {
+                justify-content: space-between;
                 width: 100%;
-                justify-content: flex-end;
             }
 
-            .item-top {
+            .decoded-actions-bar {
                 flex-direction: column;
+                align-items: stretch;
             }
 
-            .item-thumb-wrap {
+            .filename-input-group {
+                max-width: 100%;
+            }
+
+            .decoded-btns-group {
+                justify-content: space-between;
                 width: 100%;
-                height: 120px;
             }
 
-            .btn-back,
-            .theme-toggle {
-                width: 34px;
-                height: 34px;
-                border-radius: 10px;
-                font-size: 16px;
-            }
-
-            .brand-logo-card {
-                width: 32px;
-                height: 32px;
-                border-radius: 8px;
-                padding: 3px;
-            }
-
-            .brand-name {
-                font-size: 17px;
-            }
-
-            .brand-app {
-                font-size: 13px;
+            .decoded-btns-group .btn {
+                flex-grow: 1;
             }
         }
     </style>
@@ -1094,7 +1859,7 @@
 
 <body>
 
-    <!-- Floating Rounded Header (Standard Spac2 Design) -->
+    <!-- Floating Glassmorphic Header -->
     <header class="header-floating-container">
         <div class="glass-panel header-inner">
             <div class="header-left">
@@ -1103,17 +1868,16 @@
                     <i class="ph-bold ph-arrow-left"></i>
                 </a>
 
-                <!-- Logo Card & App Title -->
-                <a href="https://spac2.com" class="brand-link" title="Spac2 Image to Base64">
+                <!-- Brand Logo & Title -->
+                <a href="https://spac2.com" class="brand-link" title="Spac2 Image & Base64 Converter">
                     <div class="brand-logo-card">
-                        <img src="https://spac2.com/apple-touch-icon.png" alt="Spac2 Logo"
-                            class="brand-logo-img"
+                        <img src="https://spac2.com/apple-touch-icon.png" alt="Spac2 Logo" class="brand-logo-img"
                             onerror="this.onerror=null; this.src='https://cdn1.spac2.com/app/convert-img/apple-touch-icon.png';">
                     </div>
                     <div class="brand-text">
                         <span class="brand-name">Spac2</span>
-                        <span class="brand-divider">|</span>
-                        <span class="brand-app">Image to Base64</span>
+                        <span class="brand-divider">/</span>
+                        <span class="brand-app">Image & Base64</span>
                     </div>
                 </a>
             </div>
@@ -1128,98 +1892,284 @@
         </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- Main Content Container -->
     <main>
-        <div class="app-card">
-            <div class="text-center">
-                <h1>Image to Base64</h1>
-                <p class="subtitle">Convert images to Base64 Data URI strings instantly.</p>
+        <!-- Hero Title -->
+        <div class="hero-section">
+            <h1 id="heroHeading">Image & Base64 Converter</h1>
+            <p class="subtitle" id="heroSubtitle">Convert images to Base64 Data URI strings or decode Base64 back into image files in real time.</p>
+        </div>
+
+        <!-- Top-Level Tab Switcher -->
+        <div class="main-tabs-wrapper">
+            <div class="main-tabs-nav">
+                <button class="main-tab-btn active" id="tabBtnImgToBase64" onclick="switchMainTab('img-to-base64')">
+                    <i class="ph-bold ph-image"></i>
+                    <span>Image to Base64</span>
+                </button>
+                <button class="main-tab-btn" id="tabBtnBase64ToImg" onclick="switchMainTab('base64-to-img')">
+                    <i class="ph-bold ph-code"></i>
+                    <span>Base64 to Image</span>
+                </button>
             </div>
+        </div>
 
-            <!-- Drag & Drop Zone -->
-            <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
-                <div class="upload-icon-wrap">
-                    <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke-width="1.8" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
-                    </svg>
-                </div>
-                <h3>Click or drag & drop images here</h3>
-                <p>Supports PNG, JPG, WebP, SVG, GIF, AVIF</p>
-                <input type="file" id="fileInput" multiple accept="image/*,.svg,.ico,.avif,.webp,.bmp">
-            </div>
-
-            <!-- Global Conversion Settings -->
-            <div class="options-bar">
-                <div class="option-group">
-                    <label class="option-label" for="formatPreset">Format:</label>
-                    <select id="formatPreset" class="custom-select">
-                        <option value="data-uri" selected>Data URI</option>
-                        <option value="raw">Raw Base64</option>
-                        <option value="html-img">HTML img</option>
-                        <option value="css-bg">CSS Background</option>
-                        <option value="markdown">Markdown</option>
-                    </select>
-                </div>
-
-                <div class="option-group">
-                    <label class="option-label" for="resizeMax">Size:</label>
-                    <select id="resizeMax" class="custom-select">
-                        <option value="original" selected>Original</option>
-                        <option value="1920">1920px</option>
-                        <option value="1200">1200px</option>
-                        <option value="800">800px</option>
-                        <option value="400">400px</option>
-                        <option value="128">128px</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Results Section -->
-            <div class="results-container" id="resultsContainer">
-                <div class="results-header">
-                    <div class="results-title">
-                        <i class="ph-bold ph-check-circle" style="color: var(--success-color);"></i>
-                        <span id="resultsCount">0 Images Converted</span>
+        <!-- ================= TAB 1: IMAGE TO BASE64 ================= -->
+        <div class="tab-panel active" id="panelImgToBase64">
+            <div class="app-card">
+                <!-- Modern Drop Zone -->
+                <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()" role="button"
+                    tabindex="0" aria-label="Upload images">
+                    <div class="upload-icon-circle">
+                        <i class="ph-duotone ph-cloud-arrow-up"></i>
                     </div>
-                    <div class="results-actions">
-                        <button class="btn btn-secondary btn-sm" id="copyAllJsonBtn" title="Copy all as JSON structure">
-                            <i class="ph-bold ph-code"></i> Copy All JSON
+                    <div class="drop-zone-title">Drop images here, or browse files</div>
+                    <div class="drop-zone-subtitle">Click anywhere in this area to select images from your device</div>
+
+                    <!-- Format Pills -->
+                    <div class="format-pills">
+                        <span class="format-pill">PNG</span>
+                        <span class="format-pill">JPG</span>
+                        <span class="format-pill">WEBP</span>
+                        <span class="format-pill">SVG</span>
+                        <span class="format-pill">AVIF</span>
+                        <span class="format-pill">GIF</span>
+                        <span class="format-pill">ICO</span>
+                    </div>
+
+                    <input type="file" id="fileInput" multiple accept="image/*,.svg,.ico,.avif,.webp,.bmp">
+                </div>
+
+                <!-- Global Conversion Settings Toolbar -->
+                <div class="conversion-bar">
+                    <div class="bar-left">
+                        <div class="bar-control">
+                            <label class="bar-label" for="formatPreset">Default Format:</label>
+                            <select id="formatPreset" class="custom-select">
+                                <option value="data-uri" selected>Data URI</option>
+                                <option value="html-img">&lt;img&gt; Tag</option>
+                                <option value="css-bg">CSS Background</option>
+                                <option value="markdown">Markdown</option>
+                                <option value="raw">Raw Base64</option>
+                            </select>
+                        </div>
+
+                        <div class="bar-control">
+                            <label class="bar-label" for="resizeMax">Resize Max:</label>
+                            <select id="resizeMax" class="custom-select">
+                                <option value="original" selected>Original Size</option>
+                                <option value="1920">1920 px</option>
+                                <option value="1200">1200 px</option>
+                                <option value="800">800 px</option>
+                                <option value="400">400 px</option>
+                                <option value="128">128 px (Icon)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="bar-right">
+                        <button class="btn btn-secondary btn-sm" onclick="document.getElementById('fileInput').click()">
+                            <i class="ph-bold ph-plus"></i> Select Files
                         </button>
-                        <button class="btn btn-secondary btn-sm" id="downloadAllBtn" title="Download all as text or zip">
-                            <i class="ph-bold ph-download-simple"></i> Download All
+                    </div>
+                </div>
+
+                <!-- Converted Results Section -->
+                <div class="results-container" id="resultsContainer">
+                    <div class="results-header">
+                        <div class="results-title-group">
+                            <div class="results-badge" id="resultsCountBadge">
+                                <i class="ph-bold ph-check"></i> <span id="resultsCountText">0 Images</span>
+                            </div>
+                            <span class="results-size-badge" id="totalSizeText"></span>
+                        </div>
+
+                        <div class="results-actions">
+                            <!-- View Switcher -->
+                            <div class="view-switch" title="Toggle view mode">
+                                <button class="view-btn active" id="viewCardsBtn" onclick="switchViewMode('cards')"
+                                    title="Cards view">
+                                    <i class="ph-bold ph-squares-four"></i>
+                                </button>
+                                <button class="view-btn" id="viewCompactBtn" onclick="switchViewMode('compact')"
+                                    title="Compact list view">
+                                    <i class="ph-bold ph-list-dashes"></i>
+                                </button>
+                            </div>
+
+                            <button class="btn btn-secondary btn-sm" id="copyAllJsonBtn" title="Copy metadata as JSON">
+                                <i class="ph-bold ph-code"></i> Copy JSON
+                            </button>
+
+                            <button class="btn btn-secondary btn-sm" id="downloadAllBtn" title="Download all items">
+                                <i class="ph-bold ph-download-simple"></i> Download All
+                            </button>
+
+                            <button class="btn btn-danger btn-sm" id="clearAllBtn" title="Clear all converted images">
+                                <i class="ph-bold ph-trash"></i> Clear
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Items list -->
+                    <div class="items-list" id="itemsList"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= TAB 2: BASE64 TO IMAGE ================= -->
+        <div class="tab-panel" id="panelBase64ToImg">
+            <div class="app-card decoder-card">
+                <!-- Decoder Input Header -->
+                <div class="decoder-input-header">
+                    <div class="decoder-label-title">
+                        <i class="ph-bold ph-textbox" style="color: var(--btn-bg);"></i>
+                        <span>Paste Base64 or Data URI string</span>
+                    </div>
+
+                    <div class="decoder-quick-actions">
+                        <button class="btn btn-secondary btn-sm" onclick="pasteBase64FromClipboard()" title="Paste text from clipboard">
+                            <i class="ph-bold ph-clipboard"></i> Paste
                         </button>
-                        <button class="btn btn-danger btn-sm" id="clearAllBtn" title="Clear list">
+                        <button class="btn btn-secondary btn-sm" onclick="loadSampleBase64()" title="Load sample image">
+                            <i class="ph-bold ph-sparkle"></i> Load Demo
+                        </button>
+                        <button class="btn btn-secondary btn-sm" onclick="clearDecoderInput()" title="Clear text">
                             <i class="ph-bold ph-trash"></i> Clear
                         </button>
                     </div>
                 </div>
 
-                <!-- Items list -->
-                <div id="itemsList" style="display: flex; flex-direction: column; gap: 1rem;"></div>
+                <!-- Textarea for Base64 -->
+                <div class="decoder-textarea-wrapper">
+                    <textarea class="decoder-textarea" id="decoderInput"
+                        placeholder="Paste your Base64 string here (e.g. data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA... or raw Base64 string, <img> tag, CSS url)"></textarea>
+                    <div class="decoder-bottom-bar">
+                        <span id="decoderCharCount">0 characters</span>
+                        <span id="detectedFormatBadge" style="display: none; font-weight: 700; color: var(--btn-bg);">Format: Auto</span>
+                    </div>
+                </div>
+
+                <!-- Decoder Controls Row -->
+                <div class="decoder-controls-row">
+                    <div class="bar-control">
+                        <label class="bar-label" for="decoderMimeOverride">Format Override:</label>
+                        <select id="decoderMimeOverride" class="custom-select" onchange="triggerDecode(false)">
+                            <option value="auto" selected>Auto Detect</option>
+                            <option value="image/png">PNG (.png)</option>
+                            <option value="image/jpeg">JPEG (.jpg)</option>
+                            <option value="image/webp">WebP (.webp)</option>
+                            <option value="image/svg+xml">SVG (.svg)</option>
+                            <option value="image/gif">GIF (.gif)</option>
+                            <option value="image/x-icon">ICO (.ico)</option>
+                            <option value="image/avif">AVIF (.avif)</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="triggerDecode(true)">
+                        <i class="ph-bold ph-arrow-clockwise"></i> Decode to Image
+                    </button>
+                </div>
+
+                <!-- Error Notice Banner -->
+                <div class="decoder-error-banner" id="decoderErrorBanner">
+                    <i class="ph-bold ph-warning-circle"></i>
+                    <span id="decoderErrorText">Invalid Base64 string. Please verify your string contains valid image data.</span>
+                </div>
+
+                <!-- Decoded Image Result Card -->
+                <div class="decoded-result-card" id="decodedResultCard">
+                    <div class="decoded-header">
+                        <div class="decoded-status-badge">
+                            <i class="ph-bold ph-check"></i>
+                            <span>Decoded Successfully</span>
+                        </div>
+
+                        <div class="decoded-chips">
+                            <span class="chip chip-format" id="decodedChipFormat">PNG</span>
+                            <span class="chip" id="decodedChipDimensions">0 × 0 px</span>
+                            <span class="chip chip-size-up" id="decodedChipSize">0 B</span>
+                        </div>
+                    </div>
+
+                    <!-- Image Preview Canvas Box -->
+                    <div class="decoded-preview-box" onclick="openDecodedLightbox()" title="Click to view full preview">
+                        <img id="decodedImageTag" class="decoded-img-tag" src="" alt="Decoded Base64 Image">
+                    </div>
+
+                    <!-- Export Toolbar -->
+                    <div class="decoded-actions-bar">
+                        <div class="filename-input-group">
+                            <input type="text" id="decodedFilename" class="filename-input" value="spac2-image">
+                            <span class="filename-ext-tag" id="decodedExtTag">.png</span>
+                        </div>
+
+                        <div class="decoded-btns-group">
+                            <button class="btn" id="downloadDecodedBtn" onclick="downloadDecodedImage()">
+                                <i class="ph-bold ph-download-simple"></i> Download Image
+                            </button>
+                            <button class="btn btn-secondary" onclick="copyDecodedImageToClipboard()" title="Copy binary image to paste directly into Figma, Slack...">
+                                <i class="ph-bold ph-copy"></i> Copy Image
+                            </button>
+                            <button class="btn btn-secondary" onclick="copyDecodedDataUri()" title="Copy full Data URI string">
+                                <i class="ph-bold ph-link"></i> Copy Data URI
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Helpful Info & Best Practices -->
         <div class="info-card">
-            <h2><i class="ph-bold ph-info" style="color: var(--btn-bg);"></i> When to use Base64 Images?</h2>
+            <h2><i class="ph-bold ph-lightbulb" style="color: var(--btn-bg);"></i> When to use Base64 Images?</h2>
+            <p class="info-desc">Base64 converts binary image bytes into text strings. Here are recommendations for optimal web performance:</p>
             <div class="info-grid">
                 <div class="info-box">
-                    <h3><i class="ph-bold ph-check-circle" style="color: var(--success-color);"></i> Great For Small Icons</h3>
-                    <p>Inlining small icons, logos, or SVGs removes additional HTTP requests and prevents Layout Shifts (CLS) on initial render.</p>
+                    <div class="info-box-icon" style="color: var(--success-color);">
+                        <i class="ph-bold ph-sparkle"></i>
+                    </div>
+                    <h3>Small Icons & SVGs</h3>
+                    <p>Inlining small logos or UI icons eliminates HTTP requests and avoids Cumulative Layout Shift (CLS) on initial paint.</p>
                 </div>
                 <div class="info-box">
-                    <h3><i class="ph-bold ph-envelope-simple" style="color: var(--btn-bg);"></i> HTML Emails & Templates</h3>
-                    <p>Embedded images ensure logos and signatures render immediately without external image hosting or blocking.</p>
+                    <div class="info-box-icon" style="color: var(--btn-bg);">
+                        <i class="ph-bold ph-envelope-simple"></i>
+                    </div>
+                    <h3>HTML Emails & Standalone Files</h3>
+                    <p>Embedding assets directly in email signatures or HTML templates guarantees rendering without external file hosting.</p>
                 </div>
                 <div class="info-box">
-                    <h3><i class="ph-bold ph-warning" style="color: #ff9500;"></i> File Size Warning</h3>
-                    <p>Base64 encoding increases file payload size by roughly <strong>33%</strong>. For large photos, use standard WebP/AVIF file URLs instead.</p>
+                    <div class="info-box-icon" style="color: var(--warning-color);">
+                        <i class="ph-bold ph-scales"></i>
+                    </div>
+                    <h3>Payload Trade-Off</h3>
+                    <p>Base64 encoding increases file payload by <strong>~33%</strong>. For large photos, use standard modern WebP/AVIF URLs with caching.</p>
                 </div>
             </div>
         </div>
     </main>
+
+    <!-- Image Lightbox Modal -->
+    <div id="imageModal" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <div class="modal-title" id="modalFilename">Image Preview</div>
+                <button class="modal-close" onclick="closeModal()" title="Close">
+                    <i class="ph-bold ph-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img id="modalImage" class="modal-preview-img" src="" alt="Preview">
+            </div>
+            <div class="modal-footer">
+                <div class="modal-meta-info" id="modalMeta"></div>
+                <button class="btn btn-secondary btn-sm" id="modalDownloadBtn">
+                    <i class="ph-bold ph-download-simple"></i> Download Image
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Global Floating Toast Notification -->
     <div id="toast" class="toast" role="status" aria-live="polite">
@@ -1240,7 +2190,7 @@
         function updateThemeMeta(theme) {
             const metaThemeColor = document.getElementById('themeColorMeta');
             if (metaThemeColor) {
-                metaThemeColor.setAttribute('content', theme === 'dark' ? '#000000' : '#ffffff');
+                metaThemeColor.setAttribute('content', theme === 'dark' ? '#09090b' : '#f6f8fb');
             }
         }
 
@@ -1270,33 +2220,77 @@
             clearTimeout(toastTimeout);
             toastTimeout = setTimeout(() => {
                 toast.classList.remove('show');
-            }, 2600);
+            }, 2400);
         }
 
-        // ================= CONVERTER STATE & ELEMENTS =================
-        const dropZone = document.getElementById('dropZone');
-        const fileInput = document.getElementById('fileInput');
-        const formatPresetSelect = document.getElementById('formatPreset');
-        const resizeMaxSelect = document.getElementById('resizeMax');
-        const resultsContainer = document.getElementById('resultsContainer');
-        const resultsCount = document.getElementById('resultsCount');
-        const itemsList = document.getElementById('itemsList');
-        const copyAllJsonBtn = document.getElementById('copyAllJsonBtn');
-        const downloadAllBtn = document.getElementById('downloadAllBtn');
-        const clearAllBtn = document.getElementById('clearAllBtn');
+        // ================= MAIN TAB SWITCHING =================
+        let currentMainTab = 'img-to-base64';
+        const tabBtnImgToBase64 = document.getElementById('tabBtnImgToBase64');
+        const tabBtnBase64ToImg = document.getElementById('tabBtnBase64ToImg');
+        const panelImgToBase64 = document.getElementById('panelImgToBase64');
+        const panelBase64ToImg = document.getElementById('panelBase64ToImg');
+        const heroHeading = document.getElementById('heroHeading');
+        const heroSubtitle = document.getElementById('heroSubtitle');
 
-        let convertedItems = [];
+        function switchMainTab(tabName) {
+            currentMainTab = tabName;
+            if (tabName === 'base64-to-img') {
+                tabBtnBase64ToImg.classList.add('active');
+                tabBtnImgToBase64.classList.remove('active');
+                panelBase64ToImg.classList.add('active');
+                panelImgToBase64.classList.remove('active');
+                heroHeading.textContent = 'Base64 to Image Decoder';
+                heroSubtitle.textContent = 'Decode raw Base64 strings, Data URIs, or HTML/CSS tags back into downloadable image files.';
+                history.replaceState(null, '', '#base64-to-image');
+            } else {
+                tabBtnImgToBase64.classList.add('active');
+                tabBtnBase64ToImg.classList.remove('active');
+                panelImgToBase64.classList.add('active');
+                panelBase64ToImg.classList.remove('active');
+                heroHeading.textContent = 'Image to Base64 Converter';
+                heroSubtitle.textContent = 'Convert any image into clean Data URIs, HTML img tags, CSS background rules, or Markdown snippets.';
+                history.replaceState(null, '', '#image-to-base64');
+            }
+        }
+
+        // Check hash on load
+        if (window.location.hash === '#base64-to-image') {
+            switchMainTab('base64-to-img');
+        }
 
         // Helper to format bytes
         function formatBytes(bytes) {
-            if (bytes === 0) return '0 B';
+            if (!bytes || bytes === 0) return '0 B';
             const k = 1024;
             const sizes = ['B', 'KB', 'MB', 'GB'];
             const i = Math.floor(Math.log(bytes) / Math.log(k));
             return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
         }
 
-        // ================= DRAG & DROP & PASTE LISTENERS =================
+        function escapeHtml(str) {
+            return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        // ================= TAB 1: CONVERTER STATE & DOM ELEMENTS =================
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const formatPresetSelect = document.getElementById('formatPreset');
+        const resizeMaxSelect = document.getElementById('resizeMax');
+        const resultsContainer = document.getElementById('resultsContainer');
+        const resultsCountBadge = document.getElementById('resultsCountBadge');
+        const resultsCountText = document.getElementById('resultsCountText');
+        const totalSizeText = document.getElementById('totalSizeText');
+        const itemsList = document.getElementById('itemsList');
+        const copyAllJsonBtn = document.getElementById('copyAllJsonBtn');
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
+        const clearAllBtn = document.getElementById('clearAllBtn');
+        const viewCardsBtn = document.getElementById('viewCardsBtn');
+        const viewCompactBtn = document.getElementById('viewCompactBtn');
+
+        let convertedItems = [];
+        let currentViewMode = 'cards';
+
+        // Drag & drop listeners for Tab 1
         ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
             dropZone.addEventListener(eventName, preventDefaults, false);
             document.body.addEventListener(eventName, preventDefaults, false);
@@ -1318,6 +2312,7 @@
         dropZone.addEventListener('drop', (e) => {
             const files = e.dataTransfer.files;
             if (files && files.length > 0) {
+                switchMainTab('img-to-base64');
                 processFiles(files);
             }
         });
@@ -1325,20 +2320,28 @@
         fileInput.addEventListener('change', function () {
             if (this.files && this.files.length > 0) {
                 processFiles(this.files);
-                this.value = ''; // Reset input to allow re-uploading same file
+                this.value = '';
             }
         });
 
-        // Global Paste Listener (Ctrl+V / Cmd+V anywhere on page)
+        // Global Paste Listener (Ctrl+V)
         window.addEventListener('paste', (e) => {
-            const items = (e.clipboardData || window.clipboardData).items;
-            const pastedFiles = [];
+            const clipboardData = e.clipboardData || window.clipboardData;
+            if (!clipboardData) return;
 
-            for (let i = 0; i < items.length; i++) {
-                if (items[i].type.indexOf('image') !== -1) {
-                    const blob = items[i].getAsFile();
+            // If user is typing in decoder textarea in Tab 2, let standard paste happen
+            if (document.activeElement === decoderInput) {
+                return;
+            }
+
+            const clipboardItems = clipboardData.items;
+            const pastedFiles = [];
+            for (let i = 0; i < clipboardItems.length; i++) {
+                if (clipboardItems[i].type.indexOf('image') !== -1) {
+                    const blob = clipboardItems[i].getAsFile();
                     if (blob) {
-                        const filename = `pasted-image-${Date.now()}.${blob.type.split('/')[1] || 'png'}`;
+                        const extension = blob.type.split('/')[1] || 'png';
+                        const filename = `pasted-image-${Date.now()}.${extension}`;
                         const file = new File([blob], filename, { type: blob.type });
                         pastedFiles.push(file);
                     }
@@ -1346,17 +2349,27 @@
             }
 
             if (pastedFiles.length > 0) {
+                switchMainTab('img-to-base64');
                 processFiles(pastedFiles);
                 showToast(`Pasted ${pastedFiles.length} image from clipboard!`, 'ph-clipboard-text');
+            } else if (currentMainTab === 'base64-to-img') {
+                // If in Tab 2 and pasted text
+                const text = clipboardData.getData('text');
+                if (text && text.trim().length > 10) {
+                    decoderInput.value = text;
+                    triggerDecode(false);
+                }
             }
         });
 
-        // Format Preset changed -> update all item outputs
         formatPresetSelect.addEventListener('change', () => {
+            const newFormat = formatPresetSelect.value;
+            convertedItems.forEach(item => {
+                item.activeFormat = newFormat;
+            });
             renderAllItems();
         });
 
-        // ================= FILE PROCESSING PIPELINE =================
         async function processFiles(files) {
             const validFiles = Array.from(files).filter(file => {
                 return file.type.startsWith('image/') ||
@@ -1373,7 +2386,7 @@
             for (const file of validFiles) {
                 try {
                     const itemData = await convertFileToBase64(file, maxDim);
-                    convertedItems.unshift(itemData); // Add to top
+                    convertedItems.unshift(itemData);
                 } catch (err) {
                     console.error('Conversion error for:', file.name, err);
                     showToast(`Error processing ${file.name}`, 'ph-x-circle');
@@ -1386,14 +2399,12 @@
 
         function convertFileToBase64(file, maxDimSetting) {
             return new Promise((resolve, reject) => {
-                // For SVG or if user opted for original size
                 const isSvg = file.type === 'image/svg+xml' || file.name.toLowerCase().endsWith('.svg');
 
                 if (isSvg || maxDimSetting === 'original') {
                     const reader = new FileReader();
                     reader.onload = (e) => {
                         const dataUri = e.target.result;
-                        // Get dimensions by loading into temporary image
                         const img = new Image();
                         img.onload = () => {
                             resolve(createItemObject(file, dataUri, img.naturalWidth, img.naturalHeight));
@@ -1406,7 +2417,6 @@
                     reader.onerror = reject;
                     reader.readAsDataURL(file);
                 } else {
-                    // Resize using Canvas
                     const reader = new FileReader();
                     reader.onload = (e) => {
                         const img = new Image();
@@ -1414,7 +2424,9 @@
                             const maxDimension = parseInt(maxDimSetting, 10);
                             let { width, height } = img;
 
+                            let wasResized = false;
                             if (width > maxDimension || height > maxDimension) {
+                                wasResized = true;
                                 if (width > height) {
                                     height = Math.round((height * maxDimension) / width);
                                     width = maxDimension;
@@ -1432,10 +2444,9 @@
 
                             const targetMime = file.type || 'image/png';
                             const resizedDataUri = canvas.toDataURL(targetMime, 0.92);
-                            resolve(createItemObject(file, resizedDataUri, width, height, true));
+                            resolve(createItemObject(file, resizedDataUri, width, height, wasResized));
                         };
                         img.onerror = () => {
-                            // Fallback to raw data URI
                             resolve(createItemObject(file, e.target.result, 0, 0));
                         };
                         img.src = e.target.result;
@@ -1448,24 +2459,24 @@
 
         function createItemObject(file, dataUri, width, height, isResized = false) {
             const rawBase64 = dataUri.split(',')[1] || '';
-            const base64Bytes = Math.round((rawBase64.length * 3) / 4);
+            const base64CharLength = rawBase64.length;
 
             return {
                 id: 'img_' + Math.random().toString(36).substr(2, 9),
                 name: file.name,
                 type: file.type || 'image/png',
                 originalSize: file.size,
-                base64Size: base64Bytes,
+                base64Chars: base64CharLength,
                 width: width || 'N/A',
                 height: height || 'N/A',
                 isResized,
                 dataUri: dataUri,
                 rawBase64: rawBase64,
-                activeFormat: formatPresetSelect.value
+                activeFormat: formatPresetSelect.value,
+                isCodeExpanded: false
             };
         }
 
-        // ================= FORMAT GENERATION =================
         function formatOutput(item, format) {
             switch (format) {
                 case 'raw':
@@ -1482,11 +2493,17 @@
             }
         }
 
-        function escapeHtml(str) {
-            return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        function getFormatLabel(format) {
+            switch (format) {
+                case 'data-uri': return 'Data URI';
+                case 'html-img': return 'HTML <img>';
+                case 'css-bg': return 'CSS url()';
+                case 'markdown': return 'Markdown';
+                case 'raw': return 'Raw Base64';
+                default: return 'Data URI';
+            }
         }
 
-        // ================= UI RENDERING =================
         function updateUI() {
             if (convertedItems.length === 0) {
                 resultsContainer.style.display = 'none';
@@ -1494,72 +2511,121 @@
             }
 
             resultsContainer.style.display = 'flex';
-            resultsCount.textContent = `${convertedItems.length} Image${convertedItems.length > 1 ? 's' : ''} Converted`;
+            resultsCountText.textContent = `${convertedItems.length} Image${convertedItems.length > 1 ? 's' : ''}`;
+
+            const totalOriginalBytes = convertedItems.reduce((acc, curr) => acc + (curr.originalSize || 0), 0);
+            const totalBase64Bytes = convertedItems.reduce((acc, curr) => acc + (curr.base64Chars || 0), 0);
+            totalSizeText.textContent = `Total: ${formatBytes(totalOriginalBytes)} ➔ ${formatBytes(totalBase64Bytes)}`;
+
             renderAllItems();
+        }
+
+        function switchViewMode(mode) {
+            currentViewMode = mode;
+            if (mode === 'compact') {
+                itemsList.classList.add('compact-mode');
+                viewCompactBtn.classList.add('active');
+                viewCardsBtn.classList.remove('active');
+            } else {
+                itemsList.classList.remove('compact-mode');
+                viewCardsBtn.classList.add('active');
+                viewCompactBtn.classList.remove('active');
+            }
         }
 
         function renderAllItems() {
             itemsList.innerHTML = '';
             const globalFormat = formatPresetSelect.value;
 
-            convertedItems.forEach((item, index) => {
+            convertedItems.forEach((item) => {
                 const currentFormat = item.activeFormat || globalFormat;
                 const formattedCode = formatOutput(item, currentFormat);
+                
                 const sizePercent = item.originalSize > 0 
-                    ? Math.round(((item.base64Size - item.originalSize) / item.originalSize) * 100)
+                    ? Math.round(((item.base64Chars - item.originalSize) / item.originalSize) * 100)
                     : 33;
-                const sizeChangeText = sizePercent >= 0 ? `+${sizePercent}%` : `${sizePercent}%`;
+                const sizeChangeSign = sizePercent >= 0 ? `+${sizePercent}%` : `${sizePercent}%`;
 
                 const card = document.createElement('div');
                 card.className = 'item-card';
                 card.id = `card_${item.id}`;
 
+                const previewSnippet = formattedCode.length > 70 
+                    ? formattedCode.substring(0, 70) + '...' 
+                    : formattedCode;
+
                 card.innerHTML = `
-                    <div class="item-top">
-                        <div class="item-thumb-wrap">
-                            <img src="${item.dataUri}" alt="${escapeHtml(item.name)}" class="item-thumb" loading="lazy" />
-                        </div>
-                        <div class="item-info">
-                            <div class="item-name" title="${escapeHtml(item.name)}">${escapeHtml(item.name)}</div>
-                            <div class="item-meta">
-                                <span class="meta-chip">${item.type.split('/')[1]?.toUpperCase() || 'IMG'}</span>
-                                <span class="meta-chip">${item.width} × ${item.height} px</span>
-                                <span class="meta-chip">Orig: ${formatBytes(item.originalSize)}</span>
-                                <span class="meta-chip positive">Base64: ${formatBytes(item.base64Size)} (${sizeChangeText})</span>
-                                ${item.isResized ? '<span class="meta-chip" style="color: #ff9500;">Resized</span>' : ''}
+                    <div class="item-main-row">
+                        <div class="item-left">
+                            <div class="item-thumb-box" onclick="openModal('${item.id}')" title="Click to view full preview">
+                                <img src="${item.dataUri}" alt="${escapeHtml(item.name)}" class="item-thumb-img" loading="lazy" />
+                                <div class="item-thumb-overlay">
+                                    <i class="ph-bold ph-magnifying-glass-plus"></i>
+                                </div>
+                            </div>
+                            <div class="item-details">
+                                <div class="item-filename" title="${escapeHtml(item.name)}">${escapeHtml(item.name)}</div>
+                                <div class="item-chips">
+                                    <span class="chip chip-format">${item.type.split('/')[1]?.toUpperCase() || 'IMG'}</span>
+                                    <span class="chip">${item.width} × ${item.height} px</span>
+                                    <span class="chip chip-size-up">${formatBytes(item.originalSize)} ➔ ${formatBytes(item.base64Chars)}</span>
+                                    <span class="chip chip-size-overhead">${sizeChangeSign}</span>
+                                    ${item.isResized ? '<span class="chip" style="color: #ff9500; border-color: rgba(255,149,0,0.3);">Resized</span>' : ''}
+                                </div>
                             </div>
                         </div>
-                        <div class="item-item-actions">
-                            <button class="btn btn-secondary btn-sm" onclick="downloadSingle('${item.id}')" title="Download .txt">
+
+                        <div class="item-right-actions">
+                            <button class="btn btn-copy-main" onclick="copyItemCode('${item.id}')" id="copyBtn_${item.id}" title="Copy in current format">
+                                <i class="ph-bold ph-copy"></i> Copy ${getFormatLabel(currentFormat)}
+                            </button>
+                            <button class="btn btn-secondary btn-icon-only" onclick="downloadSingle('${item.id}')" title="Download Base64 (.txt)">
                                 <i class="ph-bold ph-download-simple"></i>
                             </button>
-                            <button class="btn btn-danger btn-sm" onclick="removeItem('${item.id}')" title="Remove image">
+                            <button class="btn btn-danger btn-icon-only" onclick="removeItem('${item.id}')" title="Remove item">
                                 <i class="ph-bold ph-trash"></i>
                             </button>
                         </div>
                     </div>
 
-                    <!-- Format Selector Tabs -->
-                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+                    <div class="format-selector-row">
                         <div class="format-tabs">
-                            <button class="format-tab ${currentFormat === 'data-uri' ? 'active' : ''}" onclick="switchItemFormat('${item.id}', 'data-uri')">Data URI</button>
-                            <button class="format-tab ${currentFormat === 'raw' ? 'active' : ''}" onclick="switchItemFormat('${item.id}', 'raw')">Raw Base64</button>
-                            <button class="format-tab ${currentFormat === 'html-img' ? 'active' : ''}" onclick="switchItemFormat('${item.id}', 'html-img')">&lt;img&gt; Tag</button>
-                            <button class="format-tab ${currentFormat === 'css-bg' ? 'active' : ''}" onclick="switchItemFormat('${item.id}', 'css-bg')">CSS Background</button>
-                            <button class="format-tab ${currentFormat === 'markdown' ? 'active' : ''}" onclick="switchItemFormat('${item.id}', 'markdown')">Markdown</button>
+                            <button class="format-tab-btn ${currentFormat === 'data-uri' ? 'active' : ''}" onclick="switchItemFormat('${item.id}', 'data-uri')">
+                                <i class="ph-bold ph-link"></i> Data URI
+                            </button>
+                            <button class="format-tab-btn ${currentFormat === 'html-img' ? 'active' : ''}" onclick="switchItemFormat('${item.id}', 'html-img')">
+                                <i class="ph-bold ph-code"></i> &lt;img&gt;
+                            </button>
+                            <button class="format-tab-btn ${currentFormat === 'css-bg' ? 'active' : ''}" onclick="switchItemFormat('${item.id}', 'css-bg')">
+                                <i class="ph-bold ph-paint-brush"></i> CSS
+                            </button>
+                            <button class="format-tab-btn ${currentFormat === 'markdown' ? 'active' : ''}" onclick="switchItemFormat('${item.id}', 'markdown')">
+                                <i class="ph-bold ph-markdown-logo"></i> Markdown
+                            </button>
+                            <button class="format-tab-btn ${currentFormat === 'raw' ? 'active' : ''}" onclick="switchItemFormat('${item.id}', 'raw')">
+                                <i class="ph-bold ph-text-aa"></i> Raw
+                            </button>
                         </div>
-                        <button class="btn btn-sm" onclick="copyItemCode('${item.id}')" id="copyBtn_${item.id}">
-                            <i class="ph-bold ph-copy"></i> Copy
+
+                        <button class="toggle-code-btn" onclick="toggleCodeBox('${item.id}')" id="toggleBtn_${item.id}">
+                            <i class="ph-bold ${item.isCodeExpanded ? 'ph-caret-up' : 'ph-code'}"></i>
+                            <span>${item.isCodeExpanded ? 'Hide Code' : 'View Code'}</span>
                         </button>
                     </div>
 
-                    <!-- Code box display -->
-                    <div class="code-box-wrapper">
+                    <div class="snippet-preview-bar">
+                        <div class="snippet-preview-text" title="${escapeHtml(previewSnippet)}">${escapeHtml(previewSnippet)}</div>
+                        <div class="snippet-preview-meta">${item.base64Chars.toLocaleString()} chars</div>
+                    </div>
+
+                    <div class="code-box-full ${item.isCodeExpanded ? 'open' : ''}" id="codeBox_${item.id}">
                         <div class="code-box-header">
-                            <span>Format: ${currentFormat.toUpperCase()}</span>
-                            <span>${formattedCode.length.toLocaleString()} characters</span>
+                            <span>Format: ${getFormatLabel(currentFormat)} (${item.base64Chars.toLocaleString()} characters)</span>
+                            <button class="btn btn-secondary btn-sm" onclick="copyItemCode('${item.id}')">
+                                <i class="ph-bold ph-copy"></i> Copy
+                            </button>
                         </div>
-                        <textarea class="code-box-content" readonly id="textarea_${item.id}">${formattedCode}</textarea>
+                        <textarea class="code-box-textarea" readonly id="textarea_${item.id}">${formattedCode}</textarea>
                     </div>
                 `;
 
@@ -1567,12 +2633,30 @@
             });
         }
 
-        // ================= ACTIONS =================
         window.switchItemFormat = function (id, newFormat) {
             const item = convertedItems.find(i => i.id === id);
             if (item) {
                 item.activeFormat = newFormat;
                 renderAllItems();
+            }
+        };
+
+        window.toggleCodeBox = function (id) {
+            const item = convertedItems.find(i => i.id === id);
+            if (item) {
+                item.isCodeExpanded = !item.isCodeExpanded;
+                const codeBox = document.getElementById(`codeBox_${id}`);
+                const toggleBtn = document.getElementById(`toggleBtn_${id}`);
+
+                if (codeBox && toggleBtn) {
+                    if (item.isCodeExpanded) {
+                        codeBox.classList.add('open');
+                        toggleBtn.innerHTML = `<i class="ph-bold ph-caret-up"></i> <span>Hide Code</span>`;
+                    } else {
+                        codeBox.classList.remove('open');
+                        toggleBtn.innerHTML = `<i class="ph-bold ph-code"></i> <span>View Code</span>`;
+                    }
+                }
             }
         };
 
@@ -1585,23 +2669,24 @@
 
             try {
                 await navigator.clipboard.writeText(textToCopy);
-                showToast(`Copied ${format.toUpperCase()} to clipboard!`);
+                showToast(`Copied ${getFormatLabel(format)} to clipboard!`, 'ph-check-circle');
 
                 const btn = document.getElementById(`copyBtn_${id}`);
                 if (btn) {
                     const originalHtml = btn.innerHTML;
-                    btn.innerHTML = `<i class="ph-bold ph-check" style="color: var(--success-color);"></i> Copied!`;
+                    btn.classList.add('copied');
+                    btn.innerHTML = `<i class="ph-bold ph-check"></i> Copied!`;
                     setTimeout(() => {
                         btn.innerHTML = originalHtml;
+                        btn.classList.remove('copied');
                     }, 1800);
                 }
             } catch (err) {
-                // Fallback for older browsers
                 const textarea = document.getElementById(`textarea_${id}`);
                 if (textarea) {
                     textarea.select();
                     document.execCommand('copy');
-                    showToast('Copied to clipboard!');
+                    showToast('Copied to clipboard!', 'ph-check-circle');
                 }
             }
         };
@@ -1627,14 +2712,14 @@
         window.removeItem = function (id) {
             convertedItems = convertedItems.filter(i => i.id !== id);
             updateUI();
-            showToast('Item removed');
+            showToast('Item removed', 'ph-trash');
         };
 
         clearAllBtn.addEventListener('click', () => {
             if (confirm('Are you sure you want to clear all converted images?')) {
                 convertedItems = [];
                 updateUI();
-                showToast('Cleared all items');
+                showToast('Cleared all items', 'ph-trash');
             }
         });
 
@@ -1646,14 +2731,14 @@
                 type: item.type,
                 width: item.width,
                 height: item.height,
-                originalSize: item.originalSize,
-                base64Size: item.base64Size,
+                originalSizeBytes: item.originalSize,
+                base64Chars: item.base64Chars,
                 dataUri: item.dataUri
             }));
 
             const jsonString = JSON.stringify(jsonData, null, 2);
             await navigator.clipboard.writeText(jsonString);
-            showToast(`Copied JSON with ${convertedItems.length} images!`);
+            showToast(`Copied JSON structure for ${convertedItems.length} images!`);
         });
 
         downloadAllBtn.addEventListener('click', async () => {
@@ -1664,9 +2749,8 @@
                 return;
             }
 
-            // If JSZip available, package into zip
             if (window.JSZip) {
-                showToast('Creating ZIP archive...', 'ph-file-zip');
+                showToast('Packaging ZIP archive...', 'ph-file-zip');
                 const zip = new JSZip();
                 const folder = zip.folder("base64-images");
 
@@ -1688,11 +2772,10 @@
                 URL.revokeObjectURL(url);
                 showToast('ZIP downloaded successfully!');
             } else {
-                // Fallback single combined txt file
                 let combinedText = '';
                 convertedItems.forEach(item => {
                     const format = item.activeFormat || formatPresetSelect.value;
-                    combinedText += `/* ================= ${item.name} (${format.toUpperCase()}) ================= */\n`;
+                    combinedText += `/* ================= ${item.name} (${getFormatLabel(format)}) ================= */\n`;
                     combinedText += formatOutput(item, format) + '\n\n';
                 });
 
@@ -1706,6 +2789,356 @@
                 document.body.removeChild(a);
                 URL.revokeObjectURL(url);
                 showToast('Combined TXT downloaded!');
+            }
+        });
+
+        // ================= TAB 2: BASE64 TO IMAGE ENGINE =================
+        const decoderInput = document.getElementById('decoderInput');
+        const decoderCharCount = document.getElementById('decoderCharCount');
+        const detectedFormatBadge = document.getElementById('detectedFormatBadge');
+        const decoderMimeOverride = document.getElementById('decoderMimeOverride');
+        const decoderErrorBanner = document.getElementById('decoderErrorBanner');
+        const decoderErrorText = document.getElementById('decoderErrorText');
+        const decodedResultCard = document.getElementById('decodedResultCard');
+        const decodedChipFormat = document.getElementById('decodedChipFormat');
+        const decodedChipDimensions = document.getElementById('decodedChipDimensions');
+        const decodedChipSize = document.getElementById('decodedChipSize');
+        const decodedImageTag = document.getElementById('decodedImageTag');
+        const decodedFilename = document.getElementById('decodedFilename');
+        const decodedExtTag = document.getElementById('decodedExtTag');
+
+        let currentDecodedData = null; // { dataUri, blob, width, height, mimeType, extension }
+        let decodeDebounceTimer = null;
+
+        decoderInput.addEventListener('input', () => {
+            const count = decoderInput.value.length;
+            decoderCharCount.textContent = `${count.toLocaleString()} characters`;
+
+            clearTimeout(decodeDebounceTimer);
+            if (count > 20) {
+                decodeDebounceTimer = setTimeout(() => {
+                    triggerDecode(false);
+                }, 350);
+            } else if (count === 0) {
+                hideDecoderError();
+                decodedResultCard.classList.remove('show');
+                detectedFormatBadge.style.display = 'none';
+            }
+        });
+
+        function getExtensionFromMime(mime) {
+            switch (mime) {
+                case 'image/png': return 'png';
+                case 'image/jpeg': return 'jpg';
+                case 'image/webp': return 'webp';
+                case 'image/svg+xml': return 'svg';
+                case 'image/gif': return 'gif';
+                case 'image/x-icon': return 'ico';
+                case 'image/avif': return 'avif';
+                case 'image/bmp': return 'bmp';
+                default: return 'png';
+            }
+        }
+
+        function extractCleanBase64Data(rawInput, forcedMime = 'auto') {
+            if (!rawInput) return null;
+            let str = rawInput.trim();
+
+            // Extract from <img src="...">
+            const imgTagMatch = str.match(/<img[^>]+src=["']([^"']+)["']/i);
+            if (imgTagMatch) {
+                str = imgTagMatch[1];
+            }
+
+            // Extract from url("...")
+            const cssUrlMatch = str.match(/url\(['"]?([^'")]+)['"]?\)/i);
+            if (cssUrlMatch) {
+                str = cssUrlMatch[1];
+            }
+
+            let detectedMime = 'image/png';
+            let base64Body = '';
+
+            if (str.startsWith('data:')) {
+                const commaIndex = str.indexOf(',');
+                if (commaIndex !== -1) {
+                    const headerPart = str.substring(0, commaIndex);
+                    base64Body = str.substring(commaIndex + 1).replace(/\s/g, '');
+                    const mimeMatch = headerPart.match(/data:([^;]+)/);
+                    if (mimeMatch) {
+                        detectedMime = mimeMatch[1];
+                    }
+                } else {
+                    return null;
+                }
+            } else {
+                // Raw base64 string
+                base64Body = str.replace(/\s/g, '');
+                if (base64Body.startsWith('iVBORw0KGgo')) {
+                    detectedMime = 'image/png';
+                } else if (base64Body.startsWith('/9j/')) {
+                    detectedMime = 'image/jpeg';
+                } else if (base64Body.startsWith('R0lGOD')) {
+                    detectedMime = 'image/gif';
+                } else if (base64Body.startsWith('UklGR')) {
+                    detectedMime = 'image/webp';
+                } else if (base64Body.startsWith('AAABAA')) {
+                    detectedMime = 'image/x-icon';
+                } else if (base64Body.startsWith('PHN2Zy') || base64Body.startsWith('PD94bWw')) {
+                    detectedMime = 'image/svg+xml';
+                } else {
+                    detectedMime = 'image/png';
+                }
+            }
+
+            const effectiveMime = forcedMime !== 'auto' ? forcedMime : detectedMime;
+            const fullDataUri = `data:${effectiveMime};base64,${base64Body}`;
+
+            return {
+                dataUri: fullDataUri,
+                rawBase64: base64Body,
+                mimeType: effectiveMime,
+                extension: getExtensionFromMime(effectiveMime)
+            };
+        }
+
+        async function triggerDecode(isManualClick = false) {
+            const rawVal = decoderInput.value.trim();
+            if (!rawVal) {
+                if (isManualClick) {
+                    showDecoderError('Please paste or type a Base64 string first.');
+                }
+                return;
+            }
+
+            const forcedMime = decoderMimeOverride.value;
+            const parsed = extractCleanBase64Data(rawVal, forcedMime);
+
+            if (!parsed || !parsed.rawBase64 || parsed.rawBase64.length < 8) {
+                showDecoderError('Could not find a valid Base64 image payload in input.');
+                decodedResultCard.classList.remove('show');
+                return;
+            }
+
+            detectedFormatBadge.style.display = 'inline';
+            detectedFormatBadge.textContent = `Format: ${parsed.extension.toUpperCase()}`;
+
+            // Test loading image
+            const testImg = new Image();
+            testImg.onload = () => {
+                hideDecoderError();
+
+                // Build blob
+                let blob = null;
+                let sizeBytes = 0;
+                try {
+                    const byteCharacters = atob(parsed.rawBase64);
+                    const byteNumbers = new Array(byteCharacters.length);
+                    for (let i = 0; i < byteCharacters.length; i++) {
+                        byteNumbers[i] = byteCharacters.charCodeAt(i);
+                    }
+                    const byteArray = new Uint8Array(byteNumbers);
+                    blob = new Blob([byteArray], { type: parsed.mimeType });
+                    sizeBytes = blob.size;
+                } catch (e) {
+                    sizeBytes = Math.round((parsed.rawBase64.length * 3) / 4);
+                }
+
+                currentDecodedData = {
+                    dataUri: parsed.dataUri,
+                    blob: blob,
+                    width: testImg.naturalWidth,
+                    height: testImg.naturalHeight,
+                    mimeType: parsed.mimeType,
+                    extension: parsed.extension,
+                    sizeBytes: sizeBytes
+                };
+
+                // Update Decoded UI
+                decodedImageTag.src = parsed.dataUri;
+                decodedChipFormat.textContent = parsed.extension.toUpperCase();
+                decodedChipDimensions.textContent = `${testImg.naturalWidth} × ${testImg.naturalHeight} px`;
+                decodedChipSize.textContent = formatBytes(sizeBytes);
+                decodedExtTag.textContent = `.${parsed.extension}`;
+
+                decodedResultCard.classList.add('show');
+                if (isManualClick) {
+                    showToast('Base64 decoded successfully!', 'ph-check-circle');
+                }
+            };
+
+            testImg.onerror = () => {
+                showDecoderError('Invalid image data. The browser was unable to render an image from this Base64 string.');
+                decodedResultCard.classList.remove('show');
+            };
+
+            testImg.src = parsed.dataUri;
+        }
+
+        function showDecoderError(msg) {
+            decoderErrorText.textContent = msg;
+            decoderErrorBanner.classList.add('show');
+        }
+
+        function hideDecoderError() {
+            decoderErrorBanner.classList.remove('show');
+        }
+
+        async function pasteBase64FromClipboard() {
+            try {
+                if (navigator.clipboard && navigator.clipboard.readText) {
+                    const text = await navigator.clipboard.readText();
+                    if (text && text.trim()) {
+                        decoderInput.value = text;
+                        decoderCharCount.textContent = `${text.length.toLocaleString()} characters`;
+                        triggerDecode(true);
+                        showToast('Pasted from clipboard!', 'ph-clipboard-text');
+                    } else {
+                        showToast('Clipboard is empty or contains no text.', 'ph-warning');
+                    }
+                } else {
+                    decoderInput.focus();
+                    showToast('Press Ctrl + V to paste into the box.', 'ph-keyboard');
+                }
+            } catch (err) {
+                decoderInput.focus();
+                showToast('Clipboard access denied. Press Ctrl + V directly.', 'ph-warning');
+            }
+        }
+
+        function loadSampleBase64() {
+            // Elegant Spac2 SVG Logo Sample Base64
+            const sampleDataUri = `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMjU2M2ViIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM3YzNhaWVkIiAvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIHJ4PSIyNCIgZmlsbD0idXJsKCNnKSIgLz4KICA8cGF0aCBkPSJNMzAgNTBMNDUgNjVMNzAgMzUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGZpbGw9Im5vbmUiIC8+Cjwvc3ZnPg==`;
+            decoderInput.value = sampleDataUri;
+            decoderCharCount.textContent = `${sampleDataUri.length.toLocaleString()} characters`;
+            triggerDecode(true);
+        }
+
+        function clearDecoderInput() {
+            decoderInput.value = '';
+            decoderCharCount.textContent = '0 characters';
+            detectedFormatBadge.style.display = 'none';
+            hideDecoderError();
+            decodedResultCard.classList.remove('show');
+            currentDecodedData = null;
+            showToast('Cleared input', 'ph-trash');
+        }
+
+        function downloadDecodedImage() {
+            if (!currentDecodedData) return;
+            const customName = (decodedFilename.value || 'spac2-decoded').trim().replace(/[^a-zA-Z0-9_\-\.]/g, '_');
+            const safeFileName = `${customName}.${currentDecodedData.extension}`;
+
+            const a = document.createElement('a');
+            if (currentDecodedData.blob) {
+                const url = URL.createObjectURL(currentDecodedData.blob);
+                a.href = url;
+                a.download = safeFileName;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            } else {
+                a.href = currentDecodedData.dataUri;
+                a.download = safeFileName;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            }
+            showToast(`Downloaded ${safeFileName}`, 'ph-download-simple');
+        }
+
+        async function copyDecodedImageToClipboard() {
+            if (!currentDecodedData) return;
+
+            try {
+                if (navigator.clipboard && window.ClipboardItem) {
+                    let pngBlob = currentDecodedData.blob;
+
+                    // Most systems accept image/png best on system clipboard
+                    if (!pngBlob || currentDecodedData.mimeType !== 'image/png') {
+                        const img = new Image();
+                        img.src = currentDecodedData.dataUri;
+                        await new Promise(r => img.onload = r);
+
+                        const canvas = document.createElement('canvas');
+                        canvas.width = img.naturalWidth || 200;
+                        canvas.height = img.naturalHeight || 200;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0);
+                        pngBlob = await new Promise(r => canvas.toBlob(r, 'image/png'));
+                    }
+
+                    await navigator.clipboard.write([
+                        new ClipboardItem({ 'image/png': pngBlob })
+                    ]);
+                    showToast('Image copied to clipboard! Ready to paste into Figma, Word, Slack...', 'ph-check-circle');
+                } else {
+                    copyDecodedDataUri();
+                }
+            } catch (err) {
+                console.warn('ClipboardItem error, copying Data URI instead:', err);
+                copyDecodedDataUri();
+            }
+        }
+
+        async function copyDecodedDataUri() {
+            if (!currentDecodedData) return;
+            try {
+                await navigator.clipboard.writeText(currentDecodedData.dataUri);
+                showToast('Copied full Data URI string to clipboard!', 'ph-check-circle');
+            } catch (err) {
+                showToast('Unable to copy to clipboard', 'ph-warning');
+            }
+        }
+
+        function openDecodedLightbox() {
+            if (!currentDecodedData) return;
+            modalFilename.textContent = `${decodedFilename.value || 'decoded-image'}.${currentDecodedData.extension}`;
+            modalImage.src = currentDecodedData.dataUri;
+            modalMeta.textContent = `${currentDecodedData.width} × ${currentDecodedData.height} px · ${currentDecodedData.extension.toUpperCase()} · ${formatBytes(currentDecodedData.sizeBytes)}`;
+
+            modalDownloadBtn.onclick = () => {
+                downloadDecodedImage();
+            };
+
+            imageModal.classList.add('active');
+        }
+
+        // ================= IMAGE PREVIEW LIGHTBOX (GENERAL) =================
+        const imageModal = document.getElementById('imageModal');
+        const modalFilename = document.getElementById('modalFilename');
+        const modalImage = document.getElementById('modalImage');
+        const modalMeta = document.getElementById('modalMeta');
+        const modalDownloadBtn = document.getElementById('modalDownloadBtn');
+
+        window.openModal = function (id) {
+            const item = convertedItems.find(i => i.id === id);
+            if (!item) return;
+
+            modalFilename.textContent = item.name;
+            modalImage.src = item.dataUri;
+            modalMeta.textContent = `${item.width} × ${item.height} px · ${item.type.split('/')[1]?.toUpperCase()} · ${formatBytes(item.originalSize)}`;
+
+            modalDownloadBtn.onclick = () => {
+                const a = document.createElement('a');
+                a.href = item.dataUri;
+                a.download = item.name;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            };
+
+            imageModal.classList.add('active');
+        };
+
+        window.closeModal = function () {
+            imageModal.classList.remove('active');
+        };
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && imageModal.classList.contains('active')) {
+                closeModal();
             }
         });
     </script>
