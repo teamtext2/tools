@@ -235,10 +235,18 @@ const WORLD_TIMEZONES = [
       { name: "Dominica", flag: "🇩🇲", capital: "Roseau", region: "Americas", note: "Entire country" },
       { name: "Saint Kitts and Nevis", flag: "🇰🇳", capital: "Basseterre", region: "Americas", note: "Entire country" },
       { name: "Saint Vincent and the Grenadines", flag: "🇻🇨", capital: "Kingstown", region: "Americas", note: "Entire country" },
-      { name: "Guadeloupe & Martinique (France)", flag: "🇫🇷", capital: "Fort-de-France", region: "Americas", note: "French overseas departments in the Caribbean" },
-      { name: "Aruba & Curaçao (Netherlands)", flag: "🇦🇼", capital: "Oranjestad / Willemstad", region: "Americas", note: "Constituent countries of the Kingdom of the Netherlands" },
-      { name: "Bermuda (UK)", flag: "🇧🇲", capital: "Hamilton", region: "Americas", note: "British Overseas Territory in the North Atlantic" },
-      { name: "Virgin Islands (US & UK)", flag: "🇻🇮", capital: "Charlotte Amalie / Road Town", region: "Americas", note: "US and British Virgin Islands" }
+      { name: "United States Virgin Islands (USA)", flag: "🇻🇮", capital: "Charlotte Amalie", region: "Americas", note: "Unincorporated organized territory of the United States (AST)" },
+      { name: "British Virgin Islands (UK)", flag: "🇻🇬", capital: "Road Town", region: "Americas", note: "British Overseas Territory (AST)" },
+      { name: "Aruba (Netherlands)", flag: "🇦🇼", capital: "Oranjestad", region: "Americas", note: "Constituent country of the Kingdom of the Netherlands (AST)" },
+      { name: "Curaçao (Netherlands)", flag: "🇨🇼", capital: "Willemstad", region: "Americas", note: "Constituent country of the Kingdom of the Netherlands (AST)" },
+      { name: "Sint Maarten (Netherlands)", flag: "🇸🇽", capital: "Philipsburg", region: "Americas", note: "Constituent country of the Kingdom of the Netherlands (AST)" },
+      { name: "Caribbean Netherlands (Bonaire, Saba, St. Eustatius)", flag: "🇧🇶", capital: "Kralendijk", region: "Americas", note: "Special municipalities of the Netherlands (AST)" },
+      { name: "Guadeloupe (France)", flag: "🇬🇵", capital: "Basse-Terre", region: "Americas", note: "French overseas department in the Caribbean (AST)" },
+      { name: "Martinique (France)", flag: "🇲🇶", capital: "Fort-de-France", region: "Americas", note: "French overseas department in the Caribbean (AST)" },
+      { name: "Saint Martin & Saint Barthélemy (France)", flag: "🇲🇫", capital: "Marigot / Gustavia", region: "Americas", note: "French overseas collectivities in the Caribbean (AST)" },
+      { name: "Anguilla (UK)", flag: "🇦🇮", capital: "The Valley", region: "Americas", note: "British Overseas Territory in the Caribbean (AST)" },
+      { name: "Montserrat (UK)", flag: "🇲🇸", capital: "Brades / Plymouth", region: "Americas", note: "British Overseas Territory in the Leeward Islands (AST)" },
+      { name: "Bermuda (UK)", flag: "🇧🇲", capital: "Hamilton", region: "Americas", note: "British Overseas Territory in the North Atlantic (AST)" }
     ]
   },
   {
@@ -336,7 +344,10 @@ const WORLD_TIMEZONES = [
       { name: "Mauritania", flag: "🇲🇷", capital: "Nouakchott", region: "Africa", note: "Entire country" },
       { name: "Gambia", flag: "🇬🇲", capital: "Banjul", region: "Africa", note: "Entire country" },
       { name: "Guinea-Bissau", flag: "🇬🇼", capital: "Bissau", region: "Africa", note: "Entire country" },
-      { name: "São Tomé and Príncipe", flag: "🇸🇹", capital: "São Tomé", region: "Africa", note: "Entire country" },
+      { name: "São Tomé and Príncipe (Sao Tome)", flag: "🇸🇹", capital: "São Tomé", region: "Africa", note: "Island nation in the Gulf of Guinea (GMT)" },
+      { name: "Isle of Man (UK)", flag: "🇮🇲", capital: "Douglas", region: "Europe", note: "British Crown Dependency in the Irish Sea (GMT/BST)" },
+      { name: "Jersey & Guernsey (Channel Islands)", flag: "🇯🇪", capital: "Saint Helier / Saint Peter Port", region: "Europe", note: "British Crown Dependencies in the English Channel (GMT/BST)" },
+      { name: "Western Sahara", flag: "🇪🇭", capital: "Laayoune", region: "Africa", note: "Disputed territory / Sahrawi Arab Democratic Republic (GMT)" },
       { name: "Faroe Islands (Denmark)", flag: "🇫🇴", capital: "Tórshavn", region: "Europe", note: "Self-governing territory of the Kingdom of Denmark" },
       { name: "Saint Helena (UK)", flag: "🇸🇭", capital: "Jamestown", region: "Africa", note: "British Overseas Territory in the South Atlantic" }
     ]
@@ -372,6 +383,7 @@ const WORLD_TIMEZONES = [
       { name: "Serbia", flag: "🇷🇸", capital: "Belgrade", region: "Europe", note: "Entire country" },
       { name: "Bosnia and Herzegovina", flag: "🇧🇦", capital: "Sarajevo", region: "Europe", note: "Entire country" },
       { name: "Albania", flag: "🇦🇱", capital: "Tirana", region: "Europe", note: "Entire country" },
+      { name: "Kosovo", flag: "🇽🇰", capital: "Pristina", region: "Europe", note: "Sovereign state in Southeast Europe (CET/CEST)" },
       { name: "North Macedonia", flag: "🇲🇰", capital: "Skopje", region: "Europe", note: "Entire country" },
       { name: "Montenegro", flag: "🇲🇪", capital: "Podgorica", region: "Europe", note: "Entire country" },
       { name: "Luxembourg", flag: "🇱🇺", capital: "Luxembourg City", region: "Europe", note: "Entire country" },
@@ -388,7 +400,7 @@ const WORLD_TIMEZONES = [
       { name: "Tunisia", flag: "🇹🇳", capital: "Tunis", region: "Africa", note: "Entire country" },
       { name: "Cameroon", flag: "🇨🇲", capital: "Yaoundé / Douala", region: "Africa", note: "Entire country" },
       { name: "Angola", flag: "🇦🇴", capital: "Luanda", region: "Africa", note: "Entire country" },
-      { name: "DR Congo (West)", flag: "🇨🇩", capital: "Kinshasa", region: "Africa", note: "Kinshasa, Kongo Central, Équateur, Kwilu, Kwango (WAT)" },
+      { name: "Democratic Republic of the Congo (West - Kinshasa)", flag: "🇨🇩", capital: "Kinshasa", region: "Africa", note: "Kinshasa, Kongo Central, Équateur, Kwilu, Kwango (WAT)" },
       { name: "Republic of the Congo", flag: "🇨🇬", capital: "Brazzaville", region: "Africa", note: "Entire country" },
       { name: "Gabon", flag: "🇬🇦", capital: "Libreville", region: "Africa", note: "Entire country" },
       { name: "Chad", flag: "🇹🇩", capital: "N'Djamena", region: "Africa", note: "Entire country" },
@@ -417,10 +429,8 @@ const WORLD_TIMEZONES = [
       { name: "Romania", flag: "🇷🇴", capital: "Bucharest", region: "Europe", note: "Entire country" },
       { name: "Bulgaria", flag: "🇧🇬", capital: "Sofia", region: "Europe", note: "Entire country" },
       { name: "Israel", flag: "🇮🇱", capital: "Jerusalem / Tel Aviv", region: "Asia", note: "Entire country (IST/IDT)" },
-      { name: "Jordan", flag: "🇯🇴", capital: "Amman", region: "Asia", note: "Entire country" },
       { name: "Lebanon", flag: "🇱🇧", capital: "Beirut", region: "Asia", note: "Entire country" },
       { name: "Cyprus", flag: "🇨🇾", capital: "Nicosia", region: "Europe", note: "Entire country" },
-      { name: "Syria", flag: "🇸🇾", capital: "Damascus", region: "Asia", note: "Entire country" },
       { name: "Palestine", flag: "🇵🇸", capital: "Ramallah / Gaza", region: "Asia", note: "Entire country" },
       { name: "Sudan", flag: "🇸🇩", capital: "Khartoum", region: "Africa", note: "Entire country (CAT)" },
       { name: "South Sudan", flag: "🇸🇸", capital: "Juba", region: "Africa", note: "Entire country" },
@@ -433,7 +443,7 @@ const WORLD_TIMEZONES = [
       { name: "Malawi", flag: "🇲🇼", capital: "Lilongwe", region: "Africa", note: "Entire country (CAT)" },
       { name: "Rwanda", flag: "🇷🇼", capital: "Kigali", region: "Africa", note: "Entire country (CAT)" },
       { name: "Burundi", flag: "🇧🇮", capital: "Gitega", region: "Africa", note: "Entire country (CAT)" },
-      { name: "DR Congo (East)", flag: "🇨🇩", capital: "Lubumbashi / Goma", region: "Africa", note: "Haut-Katanga, North & South Kivu, Ituri, Tshopo (CAT)" },
+      { name: "Democratic Republic of the Congo (East - Lubumbashi)", flag: "🇨🇩", capital: "Lubumbashi / Goma", region: "Africa", note: "Haut-Katanga, North & South Kivu, Ituri, Tshopo (CAT)" },
       { name: "Lesotho", flag: "🇱🇸", capital: "Maseru", region: "Africa", note: "Entire country" },
       { name: "Eswatini (Swaziland)", flag: "🇸🇿", capital: "Mbabane", region: "Africa", note: "Entire country" },
       { name: "Russia (Kaliningrad)", flag: "🇷🇺", capital: "Kaliningrad", region: "Europe", note: "Kaliningrad exclave on the Baltic Sea (MSK-1)" },
@@ -457,6 +467,8 @@ const WORLD_TIMEZONES = [
       { name: "Russia (Moscow Time)", flag: "🇷🇺", capital: "Moscow / St. Petersburg", region: "Europe", note: "Capital Moscow, St. Petersburg, Nizhny Novgorod, Kazan, Sochi, Rostov-on-Don (MSK)" },
       { name: "Turkey", flag: "🇹🇷", capital: "Ankara / Istanbul", region: "Europe", note: "Entire country (TRT year-round)" },
       { name: "Saudi Arabia", flag: "🇸🇦", capital: "Riyadh / Jeddah / Mecca", region: "Asia", note: "Entire country (AST)" },
+      { name: "Jordan", flag: "🇯🇴", capital: "Amman", region: "Asia", note: "Permanently adopted UTC+3 (AST) year-round in 2022" },
+      { name: "Syria", flag: "🇸🇾", capital: "Damascus", region: "Asia", note: "Permanently adopted UTC+3 (AST) year-round in 2022" },
       { name: "Iraq", flag: "🇮🇶", capital: "Baghdad", region: "Asia", note: "Entire country" },
       { name: "Qatar", flag: "🇶🇦", capital: "Doha", region: "Asia", note: "Entire country" },
       { name: "Kuwait", flag: "🇰🇼", capital: "Kuwait City", region: "Asia", note: "Entire country" },
@@ -773,7 +785,8 @@ const WORLD_TIMEZONES = [
       { name: "Kiribati (Gilbert Islands)", flag: "🇰🇮", capital: "South Tarawa", region: "Oceania", note: "Capital Tarawa and western atolls (GILT)" },
       { name: "Russia (Kamchatka Time)", flag: "🇷🇺", capital: "Petropavlovsk-Kamchatsky / Anadyr", region: "Asia", note: "Kamchatka Krai and Chukotka Autonomous Okrug in the Russian Far East (PETT / MSK+9)" },
       { name: "Wake Island (USA)", flag: "🇺🇲", capital: "Wake Island", region: "Oceania", note: "Unorganized US territory" },
-      { name: "Wallis and Futuna (France)", flag: "🇼🇫", capital: "Mata-Utu", region: "Oceania", note: "French overseas collectivity" }
+      { name: "Wallis and Futuna (France)", flag: "🇼🇫", capital: "Mata-Utu", region: "Oceania", note: "French overseas collectivity" },
+      { name: "Antarctica (McMurdo & South Pole Stations)", flag: "🇦🇶", capital: "McMurdo Station", region: "Antarctica", note: "US Antarctic Program research stations (NZST)" }
     ]
   },
   {
@@ -1224,7 +1237,7 @@ class Spac2Globe {
         const now = new Date();
         const timeStr = now.toLocaleTimeString('en-US', { timeZone: d.tz, hour: '2-digit', minute: '2-digit' });
 
-        tooltip.innerHTML = `<strong>${d.flag} ${d.city}</strong>, ${d.country}<div class="tooltip-time"><i class="ph-bold ph-clock"></i> ${timeStr}</div>`;
+        tooltip.innerHTML = `<strong>${d.flag} ${d.city}</strong>, ${d.country}<div class="tooltip-time"><svg width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"/></svg> ${timeStr}</div>`;
         tooltip.style.left = `${event.clientX - rect.left + 15}px`;
         tooltip.style.top = `${event.clientY - rect.top - 10}px`;
         tooltip.style.opacity = '1';
@@ -1354,6 +1367,19 @@ class Spac2Globe {
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Built-in inline vector SVGs for 100% reliable zero-dependency icon rendering
+  const SVG_ICONS = {
+    clock: '<svg width="14" height="14" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"/></svg>',
+    searchLarge: '<svg width="36" height="36" viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></svg>',
+    checkCircle: '<svg width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"/></svg>',
+    arrowRight: '<svg width="14" height="14" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>',
+    hourglass: '<svg width="14" height="14" viewBox="0 0 256 256" fill="currentColor"><path d="M200,24H56a8,8,0,0,0-8,8V72a48.05,48.05,0,0,0,20.35,39.31L107.57,128l-39.22,16.69A48.05,48.05,0,0,0,48,184v40a8,8,0,0,0,8,8H200a8,8,0,0,0,8-8V184a48.05,48.05,0,0,0-20.35-39.31L148.43,128l39.22-16.69A48.05,48.05,0,0,0,208,72V32A8,8,0,0,0,200,24Zm-8,16V72a32,32,0,0,1-13.57,26.21L128,119.78,77.57,98.21A32,32,0,0,1,64,72V40ZM64,184a32,32,0,0,1,13.57-26.21L128,136.22l50.43,21.57A32,32,0,0,1,192,184v32H64Z"/></svg>',
+    info: '<svg width="14" height="14" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM124,84a12,12,0,1,1,12,12A12,12,0,0,1,124,84Z"/></svg>',
+    globe: '<svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm79.4,96H169.57a149.27,149.27,0,0,0-16.79-67.88A88.22,88.22,0,0,1,207.4,120ZM128,40.16a132.84,132.84,0,0,1,25,79.84H103A132.84,132.84,0,0,1,128,40.16ZM48.6,120A88.22,88.22,0,0,1,103.22,52.12,149.27,149.27,0,0,0,86.43,120Zm0,16H86.43a149.27,149.27,0,0,0,16.79,67.88A88.22,88.22,0,0,1,48.6,136Zm79.4,79.84a132.84,132.84,0,0,1-25-79.84h50A132.84,132.84,0,0,1,128,215.84Zm24.78-11.96A149.27,149.27,0,0,0,169.57,136H207.4A88.22,88.22,0,0,1,152.78,203.88Z"/></svg>',
+    copy: '<svg width="14" height="14" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></svg>',
+    pin: '<svg width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,37.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,202.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.25,144.53,209,128,222Z"/></svg>'
+  };
+
   // App State
   const state = {
     searchQuery: '',
@@ -1578,7 +1604,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const zoneName = userZoneObj ? userZoneObj.name : state.userTzString;
 
     userZoneHeroTag.innerHTML = `
-      <i class="ph-bold ph-map-pin"></i> Your Local Timezone: <strong>${formatted}</strong> (${zoneName})
+      ${SVG_ICONS.pin} Your Local Timezone: <strong>${formatted}</strong> (${zoneName})
     `;
   }
 
@@ -1599,18 +1625,21 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!hasRegion) return false;
       }
 
-      // Search query
+      // Search query (diacritics-insensitive, case-insensitive)
       if (state.searchQuery) {
-        const q = state.searchQuery;
+        const normalizeStr = (s) => (s || '').toString().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+        const q = normalizeStr(state.searchQuery);
+
         const matchZone = 
-          zone.name.toLowerCase().includes(q) ||
-          zone.offsetStr.toLowerCase().includes(q) ||
-          zone.abbr.toLowerCase().includes(q);
+          normalizeStr(zone.name).includes(q) ||
+          normalizeStr(zone.offsetStr).includes(q) ||
+          normalizeStr(zone.abbr).includes(q);
 
         const matchCountry = zone.countries.some(c => 
-          c.name.toLowerCase().includes(q) ||
-          c.capital.toLowerCase().includes(q) ||
-          (c.note && c.note.toLowerCase().includes(q))
+          normalizeStr(c.name).includes(q) ||
+          normalizeStr(c.capital).includes(q) ||
+          (c.note && normalizeStr(c.note).includes(q)) ||
+          normalizeStr(c.region).includes(q)
         );
 
         if (!matchZone && !matchCountry) return false;
@@ -1620,13 +1649,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if (visibleCountBadge) {
-      visibleCountBadge.innerHTML = `<i class="ph-bold ph-clock"></i> ${filtered.length} / ${WORLD_TIMEZONES.length} Timezones`;
+      visibleCountBadge.innerHTML = `${SVG_ICONS.clock} <span>${filtered.length} / ${WORLD_TIMEZONES.length} Timezones</span>`;
     }
 
     if (filtered.length === 0) {
       clocksGrid.innerHTML = `
         <div class="empty-search-state">
-          <div class="empty-search-icon"><i class="ph-bold ph-magnifying-glass"></i></div>
+          <div class="empty-search-icon">${SVG_ICONS.searchLarge}</div>
           <h3>No matching timezones or countries found</h3>
           <p>Try searching by country name (e.g., "United States", "Japan", "United Kingdom", "France", "Vietnam", "Brazil") or timezone ("UTC+7", "EST").</p>
           <button class="btn btn-secondary btn-sm" onclick="document.getElementById('zoneSearchInput').value=''; document.getElementById('zoneSearchInput').dispatchEvent(new Event('input'))">Clear Filters</button>
@@ -1659,7 +1688,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const extraCount = zone.countries.length > 4 ? `+${zone.countries.length - 4}` : '';
 
     card.innerHTML = `
-      ${isMine ? `<div class="user-zone-badge-tag"><i class="ph-bold ph-check-circle"></i> Your Timezone</div>` : ''}
+      ${isMine ? `<div class="user-zone-badge-tag">${SVG_ICONS.checkCircle} <span>Your Timezone</span></div>` : ''}
 
       <div class="card-clock-header">
         <span class="tz-offset-pill font-mono">${zone.offsetStr}</span>
@@ -1697,7 +1726,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="click-see-countries-btn">
           <span>View ${zone.countries.length} countries</span>
-          <i class="ph-bold ph-arrow-right"></i>
+          ${SVG_ICONS.arrowRight}
         </div>
       </div>
     `;
@@ -1791,38 +1820,33 @@ document.addEventListener('DOMContentLoaded', () => {
       globeEngine.focusOnCoordinate(zone.lat, zone.lng);
     }
 
+    const topTitleEl = document.getElementById('modalTopBarTitle');
+    if (topTitleEl) {
+      topTitleEl.innerHTML = `
+        <span class="tz-offset-pill font-mono">${zone.offsetStr}</span>
+        <h3 class="modal-header-title">${zone.name}</h3>
+      `;
+    }
+
     const diffHours = zone.offset - (state.userOffsetMinutes / 60);
-    let diffStr = 'Same time as your browser';
-    if (diffHours > 0) diffStr = `Ahead of your browser by ${diffHours} hr(s) (+${diffHours}h)`;
-    else if (diffHours < 0) diffStr = `Behind your browser by ${Math.abs(diffHours)} hr(s) (${diffHours}h)`;
+    let diffStr = 'Same time as you';
+    if (diffHours > 0) diffStr = `+${diffHours}h from you`;
+    else if (diffHours < 0) diffStr = `${diffHours}h from you`;
 
     modalBodyContent.innerHTML = `
-      <div class="modal-zone-hero">
-        <div class="modal-zone-top">
-          <span class="tz-offset-pill large font-mono">${zone.offsetStr}</span>
-          <span class="tz-abbr-pill large">${zone.abbr}</span>
-        </div>
-        <h2 class="modal-zone-title">${zone.name}</h2>
-
-        <div class="modal-clock-hero">
-          <div class="modal-digital-clock font-mono" id="modalLiveTime">--:--:--</div>
-          <div class="modal-date-line" id="modalLiveDate">Loading...</div>
-          <div class="modal-diff-badge"><i class="ph-bold ph-hourglass-high"></i> ${diffStr}</div>
-        </div>
-
-        ${zone.description ? `<p class="modal-zone-desc"><i class="ph-bold ph-info"></i> ${zone.description}</p>` : ''}
-      </div>
-
-      <div class="modal-countries-header">
-        <div class="countries-count-title">
-          <i class="ph-bold ph-globe"></i> All Countries & Territories (${zone.countries.length}):
+      <!-- Compact Status & Action Bar -->
+      <div class="modal-sub-bar">
+        <div class="modal-sub-left">
+          <span class="modal-live-clock font-mono" id="modalLiveTime">--:--:--</span>
+          <span class="modal-diff-chip">${diffStr}</span>
+          <span class="modal-count-chip">${zone.countries.length} countries</span>
         </div>
         <button class="btn btn-secondary btn-sm" id="btnCopyCountriesList">
-          <i class="ph-bold ph-copy"></i> Copy List
+          ${SVG_ICONS.copy} <span>Copy List</span>
         </button>
       </div>
 
-      <!-- Countries List Table / Cards -->
+      <!-- Countries List -->
       <div class="modal-countries-list">
         ${zone.countries.map((c) => `
           <div class="modal-country-item">
@@ -1834,7 +1858,7 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
             </div>
             <div class="country-item-right">
-              ${c.note ? `<span class="modal-c-note"><i class="ph-bold ph-map-pin"></i> ${c.note}</span>` : `<span class="modal-c-region">${c.region}</span>`}
+              ${c.note ? `<span class="modal-c-note">${SVG_ICONS.pin} <span>${c.note}</span></span>` : `<span class="modal-c-region">${c.region}</span>`}
             </div>
           </div>
         `).join('')}
@@ -1861,8 +1885,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateModalLiveClock(zone) {
     const timeEl = document.getElementById('modalLiveTime');
-    const dateEl = document.getElementById('modalLiveDate');
-    if (!timeEl || !dateEl) return;
+    if (!timeEl) return;
 
     const now = new Date();
     const utcMs = now.getTime() + (now.getTimezoneOffset() * 60000);
@@ -1880,13 +1903,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const pad = (n) => String(n).padStart(2, '0');
     timeEl.textContent = `${pad(displayHours)}:${pad(minutes)}:${pad(seconds)}${ampm}`;
-
-    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    dateEl.textContent = `${days[zoneDate.getDay()]}, ${months[zoneDate.getMonth()]} ${zoneDate.getDate()}, ${zoneDate.getFullYear()}`;
   }
 
   function closeCountriesModal() {
+    state.selectedZone = null;
     if (countryModal) countryModal.classList.remove('open');
     if (modalOverlay) modalOverlay.classList.remove('open');
     document.body.style.overflow = '';

@@ -452,16 +452,19 @@ main {
 .search-input-wrapper {
   position: relative;
   flex-grow: 1;
+  width: 100%;
 }
 
-.search-input-wrapper i.search-icon {
+.search-input-wrapper .search-icon {
   position: absolute;
   top: 50%;
   left: 18px;
   transform: translateY(-50%);
-  font-size: 1.25rem;
+  width: 18px;
+  height: 18px;
   color: var(--text-tertiary);
   pointer-events: none;
+  display: block;
 }
 
 .zone-search-field {
@@ -495,9 +498,24 @@ main {
   background: none;
   border: none;
   color: var(--text-tertiary);
-  font-size: 1.2rem;
   cursor: pointer;
   display: none;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  transition: color 0.15s ease;
+}
+
+.btn-clear-search:hover {
+  color: var(--text-primary);
+}
+
+.btn-clear-search svg {
+  width: 18px;
+  height: 18px;
+  display: block;
 }
 
 .btn-jump-my-zone {
@@ -545,6 +563,10 @@ main {
 }
 
 .filter-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   padding: 7px 16px;
   border-radius: 9999px;
   background: var(--surface-card);
@@ -895,13 +917,22 @@ main {
   flex-shrink: 0;
 }
 
-.modal-badge-title {
-  display: inline-flex;
+.modal-header-zone {
+  display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 0.84rem;
+  gap: 10px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.modal-header-title {
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
 }
 
 .btn-close-modal {
@@ -943,117 +974,65 @@ main {
   height: 0 !important;
 }
 
-/* Modal Hero Block */
-.modal-zone-hero {
-  background: var(--surface-elevated);
-  border: 1px solid var(--border-color);
-  border-radius: 20px;
-  padding: 1rem 1.25rem;
-  text-align: center;
-  flex-shrink: 0;
-}
-
-.modal-zone-top {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  margin-bottom: 0.45rem;
-}
-
-.tz-offset-pill.large {
-  font-size: 0.84rem;
-  font-weight: 700;
-  padding: 3px 11px;
-}
-
-.tz-abbr-pill.large {
-  font-size: 0.74rem;
-  font-weight: 600;
-  padding: 3px 9px;
-}
-
-.modal-zone-title {
-  font-size: 1.08rem;
-  font-weight: 700;
-  line-height: 1.32;
-  color: var(--text-primary);
-  margin-bottom: 2px;
-}
-
-.modal-zone-subtitle {
-  font-size: 0.76rem;
-  color: var(--text-secondary);
-  margin-bottom: 0.65rem;
-}
-
-.modal-clock-hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-}
-
-.modal-digital-clock {
-  font-size: 1.85rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-  font-variant-numeric: tabular-nums;
-  line-height: 1.15;
-}
-
-.modal-date-line {
-  font-size: 0.78rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-  margin-top: 2px;
-}
-
-.modal-diff-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 3px 10px;
-  border-radius: 9999px;
-  background: var(--surface-card);
-  border: 1px solid var(--border-color);
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-top: 5px;
-}
-
-.modal-zone-desc {
-  margin-top: 0.55rem;
-  font-size: 0.73rem;
-  color: var(--text-secondary);
-  line-height: 1.4;
-}
-
-/* Modal Countries Header */
-.modal-countries-header {
+/* Compact Sub Bar (Live Time, Diff, Country Count & Action) */
+.modal-sub-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 0.15rem;
+  gap: 10px;
+  padding: 0.55rem 0.85rem;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
   flex-shrink: 0;
 }
 
-.countries-count-title {
-  font-size: 0.84rem;
-  font-weight: 700;
-  color: var(--text-primary);
+.modal-sub-left {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
-.modal-countries-header .btn {
+.modal-live-clock {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+  padding: 2px 8px;
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+}
+
+.modal-diff-chip {
   font-size: 0.74rem;
-  padding: 4px 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 3px 9px;
+  border-radius: 9999px;
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+
+.modal-count-chip {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  padding: 3px 9px;
+  border-radius: 9999px;
+  background: var(--badge-bg);
+  border: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+
+.modal-sub-bar .btn {
+  font-size: 0.76rem;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  gap: 5px;
 }
 
 /* Modal Countries List */
@@ -1485,17 +1464,14 @@ main {
     gap: 0.85rem;
   }
 
-  .modal-zone-hero {
-    padding: 0.9rem 1.1rem;
-    border-radius: 18px;
+  .modal-sub-bar {
+    padding: 0.45rem 0.7rem;
+    gap: 6px;
   }
 
-  .modal-zone-title {
-    font-size: 1.02rem;
-  }
-
-  .modal-digital-clock {
-    font-size: 1.65rem;
+  .modal-live-clock {
+    font-size: 0.9rem;
+    padding: 2px 6px;
   }
 
   .modal-country-item {
