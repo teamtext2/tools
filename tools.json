@@ -1,0 +1,16 @@
+[
+  {
+    "t": "Spac2 Time Zone",
+    "d": "Explore all 38 global time zones with live analog and digital clocks, UTC offsets, and territories.",
+    "l": "https://spac2.com/tools/time-zone/",
+    "i": "https://spac2.com/apple-touch-icon.png",
+    "tag": "tools, utility, workspace, timezone, clock, world clock"
+  },
+  {
+    "t": "Spac2 Image & Base64 Converter",
+    "d": "Convert PNG, JPG, WebP, SVG images to Base64 Data URI strings or decode Base64 back to image files.",
+    "l": "https://spac2.com/tools/convert-img-to-base64/",
+    "i": "https://cdn1.spac2.com/app/convert-img/apple-touch-icon.png",
+    "tag": "tools, utility, design, convert, base64, image converter"
+  }
+]
